@@ -1,8 +1,11 @@
-# web-dev-template
+# Web Dev Summer 2017
 
-1. git clone https://github.com/jannunzi/web-dev-template.git
-1. cd web-dev-template
-1. npm install
-1. mongod
-1. node server.js
-1. browse to localhost:3000
+My name is Ben Campbell and I am a student at Northeastern University in the College of Computer Science. I have worked on several programming teams on co-op but this will be my first solo web development project.
+
+The purpose of this repo is to be a learning space for the MEAN web development stack.
+
+Relevant links
+* [Heroku App](https://campbell-benjamin-webdev.herokuapp.com)
+* [Project]
+* [Assignments]
+
