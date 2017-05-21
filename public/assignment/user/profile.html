@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/styles.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+    <!--<div class="container-fluid">-->
+        <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
+        <!--<div class="navbar-header">-->
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+                <!--<span class="sr-only">Toggle navigation</span>-->
+                <!--&lt;!&ndash;<span class="icon-bar"></span>&ndash;&gt;-->
+                <!--&lt;!&ndash;<span class="icon-bar"></span>&ndash;&gt;-->
+                <!--&lt;!&ndash;<span class="icon-bar"></span>&ndash;&gt;-->
+            <!--</button>-->
+            <!--<a class="navbar-brand" href="#">Profile</a>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
+        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+            <!--<ul class="nav navbar-nav navbar-right">-->
+                <!--<li><a href="profile.html">-->
+                    <!--<span class="glyphicon glyphicon-ok"></span>-->
+                <!--</a></li>-->
+            <!--</ul>-->
+        <!--</div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
+    <!--</div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+<!--</nav>-->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="#" class="navbar-notoggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class=" pull-right glyphicon glyphicon-ok"></span>
+            </a>
+            <a class="navbar-brand" href="#">Profile</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="myNavbar">
+            <li><a href="#">
+                <span class="hover-highlight color-white pull-right glyphicon glyphicon-ok"></span>
+            </a></li>
+        </ul>
+    </div>
+</nav>
+
+
+    <div class="container-fluid">
+
+        <label for="username">Username</label>
+        <input value="jannunzi"
+               placeholder="username"
+               id="username"
+               class="form-control"/>
+
+        <label for="email">Email</label>
+        <input value="jannunzi@gmail.com"
+               placeholder="email"
+               type="email"
+               id="email"
+               class="form-control"/>
+
+        <label for="firstname">First Name </label>
+        <input value="Jose"
+               placeholder="first name"
+               id="firstname"
+               class="form-control"/>
+
+        <label for="lastname">Last Name </label>
+        <input value="Annunziato"
+               placeholder="last name"
+               id="lastname"
+               class="form-control"/>
+
+        <a href="../website/website-list.html" class="btn btn-block btn-primary">Websites</a>
+
+        <a href="login.html" class="btn btn-block btn-danger">Logout</a>
+    </div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="#" class="navbar-notoggle" data-toggle="collapse" data-target="#theFooter">
+                <span class=" pull-right glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="theFooter">
+            <li><a href="#">
+                <span class="hover-highlight color-white pull-right glyphicon glyphicon-user"></span>
+            </a></li>
+        </ul>
+    </div>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+
+/*
+.wd-scrollable-left-split {
+    position: absolute;
+    bottom: 37px;
+    top: 50px;
+    overflow: scroll;
+    padding-top: 10px;
+}
+
+@media (min-width: 768px) {
+    .col-sm-8 {
+        width: 66.66666667%;
+        margin-left: 33%;
+    }
+}
+*/
+
+input.form-control,
+textarea.form-control,
+select.form-control {
+    margin-bottom: 15px;
+}
+
+body {
+    margin-top: 70px;
+    margin-bottom: 60px;
+}
+
+.navbar-default {
+    background-color: #337ab7;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-brand:hover {
+    color: white !important;
+}
+
+.color-white {
+    color: white;
+}
+
+.hover-highlight:hover {
+    color: #5e5e5e;
+    background-color: transparent;
+}
+
+.navbar-notoggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .navbar-notoggle {
+        display: none;
+    }
+}
+
+.list-group-item {
+    border: none;
+}
+
+
+.srollable-left {
+    position: absolute;
+    top: 50px;
+    bottom: 0px;
+    overflow: scroll;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+
+
+@media (min-width: 768px) {
+    .col-sm-8 {
+        margin-left: 33%;
+    }
+}
+
+.wd-widget {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.wd-toolbar {
+    position: absolute;
+    background-color: white;
+    top: 0px;
+    right: 0px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom-left-radius: 10px;
+    opacity: 0.8;
+}
