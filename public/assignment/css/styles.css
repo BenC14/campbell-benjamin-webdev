@@ -26,6 +26,10 @@ body {
     margin-bottom: 60px;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 .navbar-default {
     background-color: #337ab7;
 }
@@ -52,7 +56,11 @@ body {
     padding-bottom: 15px;
 }
 .pad-right {
-    padding-right: 15px;
+     padding-right: 15px;
+}
+
+.pad-left {
+    padding-left: 15px;
 }
 
 .navbar-notoggle {
@@ -129,4 +137,5 @@ body {
     padding-bottom: 5px;
     border-bottom-left-radius: 10px;
     opacity: 0.8;
+    z-index: 2;
 }

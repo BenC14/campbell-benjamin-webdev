@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="../css/styles.css" rel="stylesheet"/>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Login</title>
     </head>
 <body>
     <div class="container-fluid">
@@ -14,14 +14,17 @@
 
         <label for="username">Username</label>
         <input id="username"
+               type="text"
                placeholder="username"
                class="form-control"/>
 
-        <label>Password</label>
-        <input placeholder="password"
+        <label for="password">Password</label>
+        <input type="password"
+               placeholder="password"
+               id="password"
                class="form-control"/>
 
-        <a href="../website/website-list.html" class="btn btn-block btn-primary">Login</a>
+        <a href="profile.html" class="btn btn-block btn-primary">Login</a>
         <a href="register.html" class="btn btn-block btn-success">Register</a>
     </div>
 </body>

@@ -1,75 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/styles.css" rel="stylesheet"/>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Widget List</title>
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top navbar-light-theme">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Widget List
+            <a href="widget-chooser.html" class="navbar-notoggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="pull-right color-dark glyphicon glyphicon-plus"></span>
             </a>
+
+            <div class="navbar-brand navbar-brand-light">
+                <a href="../page/page-list.html">
+                    <span class="pad-right hover-highlight color-dark glyphicon glyphicon-chevron-left"></span>
+                </a>
+                Pages
+            </div>
         </div>
+
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="myNavbar">
+            <li><a href="widget-chooser.html">
+                <span class="hover-highlight color-dark pull-right glyphicon glyphicon-plus"></span>
+            </a></li>
+        </ul>
+
     </div>
 </nav>
 
 <div class="container-fluid">
     <div class="wd-widget">
         <div class="wd-toolbar">
-            <span class="glyphicon glyphicon-cog"></span>
+            <a href="widget-heading.html"><span class="glyphicon glyphicon-cog"></span> </a>
             <span class="glyphicon glyphicon-align-justify"></span>
         </div>
         <h1>GIZMODO</h1>
     </div>
+
     <div class="wd-widget">
         <div class="wd-toolbar">
             <span class="glyphicon glyphicon-cog"></span>
             <span class="glyphicon glyphicon-align-justify"></span>
         </div>
-        <h3>A New Look at Proxima b's Potential Climate Offers Hope for Future Colonists</h3>
+        <h3>React vs Angular 2: Comparison Guide for Beginners</h3>
     </div>
+
     <div class="wd-widget">
         <div class="wd-toolbar">
-            <a href="widget-image-editor.html">
+            <a href="widget-image.html">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
         </div>
-        <img width="100%" src="https://i.kinja-img.com/gawker-media/image/upload/s--kQW-rqr0--/c_scale,fl_progressive,q_80,w_800/peyikndaxktdvxzynsb5.jpg"/>
+        <img width="100%" src="http://codecondo.com/wp-content/uploads/2015/05/15-Directives-to-Extend-Your-Angular.js-Apps.jpg?x94435"/>
     </div>
-    <div class="wd-widget">
-        <div class="wd-toolbar">
-            <span class="glyphicon glyphicon-cog"></span>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
 
-        <p>Ever since astronomers <a href="http://gizmodo.com/new-earth-like-exoplanet-could-be-discovery-of-the-cent-1785614793#_ga=2.67003244.390029006.1495112369-1520736541.1475842057" rel="nofollow">announced the discovery</a> of an Earth-sized exoplanet <a href="http://gizmodo.com/there-may-be-an-earth-like-exoplanet-less-than-five-lig-1785457935" rel="nofollow">less than five light years</a> down the cosmic street, the question on every good space cadet’s mind has been whether or not we can colonize it. We’re not going to know if <em>Proxima b</em> is habitable <a href="http://gizmodo.com/how-well-get-our-first-big-clue-about-life-on-proxima-b-1785942106" rel="nofollow">until we can point some very powerful telescopes at it</a>, which won’t happen until next year. But until then, scientists are playing around with models—and one such modeling effort recently came to some promising conclusions.</p>
-        <p>If <em>Proxima b</em> has an Earth-like atmosphere, researchers found, it might just be a comfortable place to live. A (probably) rocky planet located a measly 25 trillion miles away, Proxima b lies squarely in the “habitable zone” of its star—a tempestuous red dwarf called Proxima Centauri—meaning it might be able to support liquid water, and even life. The latter is still a big question mark, but as we wait for more data, a UK-based team of scientists is trying to figure out whether <em>Proxima b </em>might have the stable climate and reasonable temperatures necessary for life.</p>
-        <p>So the researchers turned to the Met Office Unified Model, one of the foremost models for studying the climate here on Earth. The team modified this model for extraterrestrial forecasting by considering two potential atmospheres: an Earth-like one rich in nitrogen and oxygen, and a simple nitrogen atmosphere containing trace amounts of CO2. Then they ran their simulations considering a few hypothetical orbits for <em>Proxima b</em>, including one in which the planet is tidally locked, with a permanent dayside and a permanent nightside, and an orbit similar to that of Mercury. The researchers also considered differences in the star’s light output, which produces more infrared and less visible light than our Sun.</p>
+    <div class="wd-widget">
+        <div class="wd-toolbar">
+            <a href="widget-image.html"><span class="glyphicon glyphicon-cog"></span></a>
+            <span class="glyphicon glyphicon-align-justify"></span>
+        </div>
+        <p>At the time of writing, it becomes more and more difficult for
+            <a href="https://www.codementor.io/learn-programming/beginner-programming-language-job-salary-community"
+               target="_blank" rel="nofollow">beginners to choose a JavaScript framework</a>
+            to use for their project, or even to start learning. Every day, we hear new systems, approaches,
+            and tools to make things easier. Some tools bundle, minify, abstract, hide, log,
+            <a href="https://www.codementor.io/learn-programming/how-to-debug-code-efficiently-and-effectively"
+               target="_blank" rel="nofollow">debug</a>, and interact more directly to the DOM. Each one has their uses,
+            but they also contribute to the <a href="https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4#.8d5ohgv4x"
+                                               target="_blank" rel="nofollow">JavaScript fatigue</a>
+            — the (too) many tools in the JavaScript world only make learning and using it feel more complicated than it should.</p>
     </div>
     <div class="wd-widget">
         <div class="wd-toolbar">
-            <span class="glyphicon glyphicon-cog"></span>
+            <a href="widget-youtube.html"><span class="glyphicon glyphicon-cog"></span></a>
             <span class="glyphicon glyphicon-align-justify"></span>
         </div>
-        <iframe width="100%" src="https://www.youtube.com/embed/Aaq3Ah4oNAE" frameborder="0" allowfullscreen></iframe>
+        <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6s-YIihbcjs"></iframe>
+        </div>
     </div>
     <div class="wd-widget"></div>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
+
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-light-theme">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Footer
+
+            <span class="pad-right pad-left pad-top-bottom glyphicon glyphicon-play"></span>
+            <span class="pad-right pad-top-bottom glyphicon glyphicon-eye-open"></span>
+
+            <a href="../user/profile.html" class="navbar-notoggle" data-toggle="collapse" data-target="#theFooter">
+                <span class=" pull-right glyphicon color-blue glyphicon-user"></span>
             </a>
         </div>
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="theFooter">
+            <li><a href="../user/profile.html">
+                <span class=" hover-highlight color-blue pull-right glyphicon glyphicon-user"></span>
+            </a></li>
+        </ul>
     </div>
 </nav>
+
 </body>
 </html>
