@@ -1,0 +1,110 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-light-theme">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-brand navbar-brand-light">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+                    <span class="pad-right hover-highlight color-dark glyphicon glyphicon-chevron-left"></span></a>
+                Choose Widget
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div>
+                <a ng-click="model.createWidget('HEADING')">
+                    Header
+                </a>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div>
+                <a ng-click="model.createWidget('LABEL')">
+                    Label
+                </a>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div>
+                <a ng-click="model.createWidget('HTML')">
+                    HTML
+                </a>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div>
+                <a ng-click="model.createWidget('TEXT')">
+                    Text Input
+                </a>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div>
+                <a href="../widget/widget-link.html">
+                    Link
+                </a>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div>
+                <a ng-click="model.createWidget('BUTTON')">
+                    Button
+                </a>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div>
+                <a ng-click="model.createWidget('IMAGE')">
+                    Image
+                </a>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div>
+                <a ng-click="model.createWidget('YOUTUBE')">
+                    Youtube
+                </a>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div>
+                <a ng-click="model.createWidget('DATA')">
+                    Data Table
+                </a>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div>
+                <a ng-click="model.createWidget('REPEATER')">
+                    Repeater
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-light-theme">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="#!/user/{{model.userId}}" class="navbar-notoggle" data-toggle="collapse" data-target="#theFooter">
+                <span class=" pull-right glyphicon color-blue glyphicon-user"></span>
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="theFooter">
+            <li><a href="#!/user/{{model.userId}}">
+                <span class=" hover-highlight color-blue pull-right glyphicon glyphicon-user"></span>
+            </a></li>
+        </ul>
+    </div>
+</nav>
