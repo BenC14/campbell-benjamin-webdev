@@ -4,7 +4,7 @@
             <a ng-click="model.updateUser()" class="navbar-notoggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class=" pull-right glyphicon glyphicon-ok"></span>
             </a>
-            <a class="navbar-brand" href="#">Profile</a>
+            <a class="navbar-brand">Profile</a>
         </div>
         <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="myNavbar">
             <li><a ng-click="model.updateUser()" >
@@ -58,12 +58,12 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#" class="navbar-notoggle" data-toggle="collapse" data-target="#theFooter">
+            <a href="#!/user/{{model.user._id}}" class="navbar-notoggle" data-toggle="collapse" data-target="#theFooter">
                 <span class=" pull-right glyphicon glyphicon-user"></span>
             </a>
         </div>
         <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="theFooter">
-            <li><a href="#">
+            <li><a href="#!/user/{{model.user._id}}">
                 <span class="hover-highlight color-white pull-right glyphicon glyphicon-user"></span>
             </a></li>
         </ul>
