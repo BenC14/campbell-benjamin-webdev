@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+    <label for="name">Name</label>
+    <input ng-model="model.widgetClone.name"
+           id="name"
+           type="text"
+           class="form-control"/>
+
+    <label for="text">Text</label>
+    <input ng-model="model.widgetClone.text"
+           id="text"
+           type="text"
+           class="form-control"/>
+
+    <label for="url">URL</label>
+    <input ng-model="model.widgetClone.url"
+           id="url"
+           type="url"
+           value="http://codecondo.com/wp-content/uploads/2015/05/15-Directives-to-Extend-Your-Angular.js-Apps.jpg?x94435"
+           class="form-control"/>
+
+    <label for="image-width">Width</label>
+    <input ng-model="model.widgetClone.width"
+           id="image-width"
+           type="text"
+           placeholder="100%"
+           class="form-control"/>
+
+    <label for="file">Upload</label>
+    <input ng-model="model.widgetClone.file"
+           id="file"
+           type="file"
+           class="form-control"/>
+
+    <a class="btn btn-primary btn-block">Upload Image</a>
+    <a ng-click="model.deleteWidget(model.widgetId)"
+       class="btn btn-danger btn-block">Delete</a>
+
+</div>
+

@@ -1,0 +1,31 @@
+<div class="container-fluid">
+
+    <label for="name">Name</label>
+    <input ng-model="model.widgetClone.name"
+           id="name"
+           type="text"
+           class="form-control"/>
+
+    <label for="text">Text</label>
+    <input ng-model="model.widgetClone.text"
+           id="text"
+           type="text"
+           class="form-control"/>
+
+    <label for="url">URL</label>
+    <input ng-model="model.widgetClone.url"
+           id="url"
+           type="url"
+           value="https://www.youtube.com/embed/6s-YIihbcjs"
+           class="form-control"/>
+
+    <label for="video-width">Width</label>
+    <input ng-model="model.widgetClone.width"
+           id="video-width"
+           type="text"
+           class="form-control"/>
+
+    <a ng-click="model.deleteWidget(model.widgetId)"
+       class="btn btn-danger btn-block">Delete</a>
+
+</div>

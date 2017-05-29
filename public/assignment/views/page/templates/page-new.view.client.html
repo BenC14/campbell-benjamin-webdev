@@ -1,0 +1,114 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-light-theme">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 hidden-sm hidden-xs">
+                <div class="navbar-header">
+                    <div>
+                        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                            <span class="pad-right pad-top-bottom hover-highlight color-dark glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class=" navbar-brand navbar-brand-light color-dark">
+                Pages
+                </div>
+            </div>
+
+            <div class="col-md-1 hidden-sm hidden-xs">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
+                    <span class="pad-right pad-top-bottom hover-highlight color-dark pull-right glyphicon glyphicon-plus"></span>
+                </a>
+            </div>
+
+            <div class="col-xs-1 hidden-md hidden-lg">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                    <span class="pad-top-bottom hover-highlight color-dark pull-left glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+
+            <div class="col-md-7 col-sm-9 col-xs-9">
+                <div class=" navbar-brand navbar-brand-light color-dark">
+                New Page
+                </div>
+            </div>
+
+            <div class="col-md-1 col-sm-2 col-xs-2">
+                <a ng-click="model.createPage(model.page)">
+                    <span class="pad-right pad-top-bottom hover-highlight color-dark pull-right glyphicon glyphicon-ok"></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 hidden-sm hidden-xs scrollable-left">
+            <ul class="list-group">
+
+                <li ng-repeat="page in model.pages"
+                    class="list-group-item">
+                    <div class="row">
+
+                        <div class="col-sm-10 col-xs-10">
+                            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                                {{page.name}}
+                            </a>
+                        </div>
+
+                        <div class="col-sm-2 col-xs-2">
+                            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
+                                <span class="glyphicon glyphicon-cog pull-right"></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-8 col-md-8-absolute">
+            <label for="name">Name</label>
+            <input ng-model="model.page.name"
+                   id="name"
+                   type="text"
+                   class="form-control"
+                   placeholder="Page Name"/>
+
+            <label for="description">Title</label>
+            <input ng-model="model.page.description"
+                   id="Description"
+                   type="text"
+                   placeholder="Page Title"
+                   class="form-control"
+            />
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-light-theme">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="#!/user/{{model.userId}}"
+               class="navbar-notoggle"
+               data-toggle="collapse"
+               data-target="#theFooter">
+                <span class="color-blue pull-right glyphicon glyphicon-user"></span>
+
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
+            id="theFooter">
+            <li>
+                <a href="#!/user/{{model.userId}}">
+                    <span class=" hover-highlight color-blue pull-right glyphicon glyphicon-user"></span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

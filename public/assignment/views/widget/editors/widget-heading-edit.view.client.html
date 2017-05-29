@@ -1,0 +1,26 @@
+<div class="container-fluid">
+
+    <label for="name">Name</label>
+    <input ng-model="model.widgetClone.name"
+           id="name"
+           type="text"
+           class="form-control"/>
+
+    <label for="text">Text</label>
+    <input ng-model="model.widgetClone.text"
+           id="text"
+           type="text"
+           value="React vs Angular 2: Comparison Guide for Beginners"
+           class="form-control"/>
+
+    <label for="size">Size</label>
+    <input ng-model="model.widgetClone.size"
+           id="size"
+           type="number"
+           value="3"
+           class="form-control"/>
+
+    <a ng-click="model.deleteWidget(model.widgetId)"
+       class="btn btn-danger btn-block">Delete</a>
+
+</div>

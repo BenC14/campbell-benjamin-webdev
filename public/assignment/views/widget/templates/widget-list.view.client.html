@@ -1,0 +1,64 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-light-theme">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" class="navbar-notoggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="pull-right color-dark glyphicon glyphicon-plus"></span>
+            </a>
+
+            <div class="navbar-brand navbar-brand-light">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                    <span class="pad-right hover-highlight color-dark glyphicon glyphicon-chevron-left"></span>
+                </a>
+                Widgets
+            </div>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="myNavbar">
+            <li><a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
+                <span class="hover-highlight color-dark pull-right glyphicon glyphicon-plus"></span>
+            </a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div ng-repeat="widget in model.widgets"
+         class="wd-widget">
+        <div class="wd-toolbar">
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                <span class="glyphicon glyphicon-cog"></span>
+            </a>
+            <span class="glyphicon glyphicon-align-justify"></span>
+        </div>
+        <ng-include src="model.getWidgetUrlForType(widget.widgetType)"></ng-include>
+    </div>
+</div>
+
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-light-theme">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <span class="pad-right pad-left pad-top-bottom glyphicon glyphicon-play"></span>
+            <span class="pad-right pad-top-bottom glyphicon glyphicon-eye-open"></span>
+
+            <a href="#!/user/{{model.userId}}"
+               class="navbar-notoggle"
+               data-toggle="collapse"
+               data-target="#theFooter">
+                <span class=" pull-right glyphicon color-blue glyphicon-user"></span>
+            </a>
+
+        </div>
+
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
+            id="theFooter">
+            <li><a href="#!/user/{{model.userId}}">
+                <span class="hover-highlight color-blue pull-right glyphicon glyphicon-user"></span>
+            </a></li>
+        </ul>
+
+    </div>
+</nav>
