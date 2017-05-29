@@ -2,7 +2,7 @@
     angular
         .module('WebAppMaker')
         .controller('registerController', registerController);
-    
+
     function registerController($location, userService) {
 
         var model = this;
@@ -27,7 +27,6 @@
                     username: username,
                     password: password
                 };
-                // model.message = user;
                 userService.createUser(user);
                 $location.url('/user/' + user._id);
             }

@@ -2,7 +2,7 @@
     angular
         .module('WebAppMaker')
         .factory('userService', userService);
-    
+
     function userService() {
 
         var users = [
@@ -20,12 +20,12 @@
             updateUser: updateUser,
             deleteUser: deleteUser
         };
-        
+
         function createUser(user) {
             user._id = (new Date()).getTime() + "";
             users.push(user);
         }
-        
+
         function findUserByUsername(username) {
             var user = users.find(function (user) {
                 return user.username === username;
@@ -34,7 +34,7 @@
                 return null;
             return user;
         }
-        
+
         function updateUser(userId, user) {
             var userOld = users.find(function (user) {
                 return user._id === userId;
@@ -44,10 +44,8 @@
             users[index].firstName = user.firstName;
             users[index].lastName = user.lastName;
             users[index].email = user.email;
-
-            console.log(users);
         }
-        
+
         function deleteUser(userId) {
             var user = users.find(function (user) {
                 return user._id === userId;

@@ -21,8 +21,6 @@
         
         function createPage(page) {
             page._id = (new Date()).getTime() + "";
-            page.created = new Date();
-            page.updated = new Date();
             pages.push(page);
         }
         
@@ -33,7 +31,6 @@
             var index = pages.indexOf(pageOld);
             pages[index].name = page.name;
             pages[index].description = page.description;
-            console.log(pages);
         }
         
         function deletePage(pageId) {
@@ -54,8 +51,6 @@
             var resultSet = [];
             for(var p in pages) {
                 if(pages[p].websiteId === websiteId) {
-                    // pages[w].created = new Date();
-                    // pages[w].updated = new Date();
                     resultSet.push(pages[p]);
                 }
             }

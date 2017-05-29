@@ -1,19 +1,28 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#!/user/{{model.userId}}/website/new" class="navbar-notoggle" data-toggle="collapse" data-target="#myNavbar">
+
+            <a href="#!/user/{{model.userId}}/website/new"
+               class="navbar-notoggle"
+               data-toggle="collapse"
+               data-target="#myNavbar">
                 <span class="pull-right glyphicon glyphicon-plus"></span>
             </a>
+
             <div class="navbar-brand">
                 <a href="#!/user/{{model.userId}}">
                     <span class="pad-right hover-highlight color-white glyphicon glyphicon-chevron-left"></span></a>
                 Websites
             </div>
+
         </div>
-        <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="myNavbar">
-            <li><a href="#!/user/{{model.userId}}/website/new">
-                <span class="hover-highlight color-white pull-right glyphicon glyphicon-plus"></span>
-            </a></li>
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
+            id="myNavbar">
+            <li>
+                <a href="#!/user/{{model.userId}}/website/new">
+                    <span class="hover-highlight color-white pull-right glyphicon glyphicon-plus"></span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -23,16 +32,19 @@
         <li ng-repeat="website in model.websites"
             class="list-group-item">
             <div class="row">
+
                 <div class="col-sm-11 col-xs-10">
                     <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">
                         {{website.name}}
                     </a>
                 </div>
+
                 <div class="col-sm-1 col-xs-2">
                     <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                         <span class="glyphicon glyphicon-cog pull-right"></span>
                     </a>
                 </div>
+
             </div>
         </li>
     </ul>
@@ -41,14 +53,20 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#!/user/{{model.userId}}" class="navbar-notoggle" data-toggle="collapse" data-target="#theFooter">
+            <a href="#!/user/{{model.userId}}"
+               class="navbar-notoggle"
+               data-toggle="collapse"
+               data-target="#theFooter">
                 <span class=" pull-right glyphicon glyphicon-user"></span>
             </a>
         </div>
-        <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="theFooter">
+
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
+            id="theFooter">
             <li><a href="#!/user/{{model.userId}}">
                 <span class=" hover-highlight color-white pull-right glyphicon glyphicon-user"></span>
             </a></li>
         </ul>
+
     </div>
 </nav>

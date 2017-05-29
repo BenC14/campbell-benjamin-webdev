@@ -27,8 +27,6 @@
         
         function createWidget(widget) {
             widget._id = (new Date()).getTime() + "";
-            widget.created = new Date();
-            widget.updated = new Date();
             widgets.push(widget);
         }
         
@@ -38,7 +36,6 @@
             });
             var index = widgets.indexOf(widgetOld);
             for (var attrname in widget) { widgets[index][attrname] = widget[attrname]; }
-            console.log(widgets);
         }
         
         function deleteWidget(widgetId) {
@@ -59,8 +56,6 @@
             var resultSet = [];
             for(var w in widgets) {
                 if(widgets[w].pageId === pageId) {
-                    // widgets[w].created = new Date();
-                    // widgets[w].updated = new Date();
                     resultSet.push(widgets[w]);
                 }
             }

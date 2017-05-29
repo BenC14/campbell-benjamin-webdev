@@ -22,8 +22,6 @@
             model.widgets = widgetService.findAllWidgetsForPage(model.pageId);
             model.widget = widgetService.findWidgetById(model.widgetId);
             model.widgetClone = angular.copy(model.widget);
-            console.log(model.widgets);
-
         }
         init();
 

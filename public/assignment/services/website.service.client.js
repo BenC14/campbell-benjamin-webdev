@@ -25,8 +25,6 @@
         
         function createWebsite(website) {
             website._id = (new Date()).getTime() + "";
-            website.created = new Date();
-            website.updated = new Date();
             websites.push(website);
         }
         
@@ -37,7 +35,6 @@
             var index = websites.indexOf(websiteOld);
             websites[index].name = website.name;
             websites[index].description = website.description;
-            console.log(websites);
         }
         
         function deleteWebsite(websiteId) {
@@ -58,8 +55,6 @@
             var resultSet = [];
             for(var w in websites) {
                 if(websites[w].developerId === userId) {
-                    // websites[w].created = new Date();
-                    // websites[w].updated = new Date();
                     resultSet.push(websites[w]);
                 }
             }
