@@ -1,9 +1,10 @@
 (function () {
     angular
         .module('WebAppMaker')
-        .controller('widgetNewController', widgetNewController);
+        .controller('widgetFlickrSearchController', widgetFlickrSearchController);
     
-    function widgetNewController($routeParams,
+    function widgetFlickrSearchController($routeParams,
+                                  flickrService,
                                   widgetService,
                                   $location) {
 
@@ -14,6 +15,29 @@
 
         // event handlers
         model.createWidget = createWidget;
+        model.selectPhoto = selectPhoto;
+        model.searchPhotos = searchPhotos;
+
+        function selectPhoto(photo) {
+            var url = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server;
+            url += "/" + photo.id + "_" + photo.secret + "_b.jpg";
+            WidgetService
+                .updateWidget(websiteId, pageId, widgetId, {url: url})
+                .then();
+        }
+
+        function searchPhotos(searchTerm) {
+            flickrService
+                .searchPhotos(searchTerm)
+                .then(function(response) {
+                    data = response.data.replace("jsonFlickrApi(","");
+                    data = data.substring(0,data.length - 1);
+                    data = JSON.parse(data);
+                    model.photos = data.photos;
+                });
+        }
+
+
 
         widgetService
             .findAllWidgetsForPage(model.pageId)

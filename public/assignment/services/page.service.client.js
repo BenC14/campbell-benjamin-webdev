@@ -3,13 +3,13 @@
         .module('WebAppMaker')
         .factory('pageService', pageService);
     
-    function pageService() {
+    function pageService($http) {
 
-        var pages = [
-            { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
-            { "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem" },
-            { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" }
-        ];
+        // var pages = [
+        //     { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
+        //     { "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem" },
+        //     { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" }
+        // ];
 
         return {
             createPage: createPage,
@@ -19,7 +19,7 @@
             deletePage: deletePage
         };
 
-        function createPage(page) {
+        function createPage(websiteId, page) {
             var url = "/api/assignment/website/"+websiteId+"/page"
             return $http.post(url, page)
                 .then(function (response) {

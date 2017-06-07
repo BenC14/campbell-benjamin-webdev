@@ -10,11 +10,19 @@
         model.websiteId = $routeParams['websiteId'];
         model.pageId = $routeParams['pageId'];
 
-        function init() {
-            model.widgets = widgetService.findAllWidgetsForPage(model.pageId);
-            console.log(model.widgets);
+        widgetService
+            .findAllWidgetsForPage(model.pageId)
+            .then(renderWidgets);
+
+        function renderWidgets(widgets) {
+            model.widgets = widgets;
         }
-        init();
+
+        // function init() {
+        //     model.widgets = widgetService.findAllWidgetsForPage(model.pageId);
+        //     console.log(model.widgets);
+        // }
+        // init();
 
         model.getWidgetUrlForType = getWidgetUrlForType;
         model.getYouTubeEmbedUrl = getYouTubeEmbedUrl;

@@ -22,7 +22,7 @@
             updateWebsite: updateWebsite,
             deleteWebsite: deleteWebsite
         };
-        function createWebsite(website) {
+        function createWebsite(userId, website) {
             var url = "/api/assignment/user/"+userId+"/website"
             return $http.post(url, website)
                 .then(function (response) {

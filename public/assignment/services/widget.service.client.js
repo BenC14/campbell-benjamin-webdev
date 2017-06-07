@@ -3,7 +3,7 @@
         .module('WebAppMaker')
         .factory('widgetService', widgetService);
     
-    function widgetService() {
+    function widgetService($http) {
 
         // var widgets = [
         //     { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
@@ -22,10 +22,11 @@
             findAllWidgetsForPage: findAllWidgetsForPage,
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
-            deleteWidget: deleteWidget
+            deleteWidget: deleteWidget,
+            sortWidgets: sortWidgets
         };
 
-        function createWidget(widget) {
+        function createWidget(pageId, widget) {
             var url = "/api/assignment/page/"+pageId+"/widget"
             return $http.post(url, widget)
                 .then(function (response) {
@@ -76,6 +77,7 @@
             var url = "/api/assignment/widget/" + widgetId;
             return $http.get(url)
                 .then(function (response) {
+                    console.log(response.data);
                     return response.data;
                 });
         }
@@ -103,5 +105,9 @@
         //     }
         //     return resultSet;
         // }
+
+        function sortWidgets(pageId, initial, final){
+            return $http.put("/page/"+pageId+"/widget?initial="+initial+"&final="+final);
+        }
     }
 })();

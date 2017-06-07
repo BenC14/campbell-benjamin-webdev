@@ -14,15 +14,23 @@
         // event handlers
         model.createPage = createPage;
 
-        function init() {
-            model.pages = pageService.findAllPagesForWebsite(model.websiteId);
+        pageService
+            .findAllPagesForWebsite(model.websiteId)
+            .then(renderPages);
+
+        function renderPages(pages) {
+            model.pages = pages;
         }
-        init();
+
+        // function init() {
+        //     model.pages = pageService.findAllPagesForWebsite(model.websiteId);
+        // }
+        // init();
 
         // implementation
         function createPage(page) {
             page.websiteId = model.websiteId;
-            pageService.createPage(page);
+            pageService.createPage(model.websiteId, page);
             $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
         }
     }
