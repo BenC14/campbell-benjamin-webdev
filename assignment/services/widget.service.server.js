@@ -1,14 +1,14 @@
 var app = require('../../express');
 
     var multer = require('multer'); // npm install multer --save
-    var upload = multer({ dest: __dirname+'/../../public/uploads' });
+    var upload = multer({ dest: __dirname+'/../../public/assignment/uploads' });
 
 app.post  ('/api/assignment/page/:pageId/widget', createWidget);
 app.get('/api/assignment/page/:pageId/widget', findAllWidgetsForPage);
 app.get   ('/api/assignment/widget/:widgetId', findWidgetById);
 app.put   ('/api/assignment/widget/:widgetId', updateWidget);
 app.delete('/api/assignment/widget/:widgetId', deleteWidget);
-app.post ("/api/upload", upload.single('myFile'), uploadImage);
+app.post ("/api/assignment/upload", upload.single('myFile'), uploadImage);
 app.put ('/api/assignment/page/:pageId/widget', orderWidget);
 
 var widgets = [
@@ -71,15 +71,16 @@ function findWidgetById(req, res) {
     var widget = widgets.find(function (widget) {
         return widget._id === widgetId;
     });
-    console.log(widgets);
-    console.log(widgetId);
-    console.log(widget);
+    // console.log(widgets);
+    // console.log(widgetId);
+    // console.log(widget);
     res.send(widget);
 }
 
 function uploadImage(req, res) {
-
+    console.log(req.body);
     var widgetId      = req.body.widgetId;
+
     var width         = req.body.width;
     var myFile        = req.file;
 
@@ -94,10 +95,15 @@ function uploadImage(req, res) {
     var size          = myFile.size;
     var mimetype      = myFile.mimetype;
 
-    widget = getWidgetById(widgetId);
-    widget.url = '/uploads/'+filename;
+    var url = '/assignment/uploads/'+filename;
 
-    var callbackUrl   = "/assignment/#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget";
+    for (var w in widgets) {
+        if (widgetId === widgets[w]._id) {
+            widgets[w].url = url;
+        }
+    }
+
+    var callbackUrl   = '/assignment/#!/user/'+userId+'/website/'+websiteId+'/page/'+pageId+'/widget/'+widgetId;
 
     res.redirect(callbackUrl);
 }

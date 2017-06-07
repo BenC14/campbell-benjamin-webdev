@@ -1,18 +1,15 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a ng-click="model.updateUser()"
-               class="navbar-notoggle"
-               data-toggle="collapse"
-               data-target="#myNavbar">
-            </a>
-            <a class="navbar-brand">Search Flickr</a>
+
+            <div class="navbar-brand">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}">
+                    <span class="pad-right hover-highlight color-white glyphicon glyphicon-chevron-left"></span></a>
+                Search Flickr
+            </div>
+
         </div>
-
-        <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
-            id="myNavbar">
         </ul>
-
     </div>
 </nav>
 
