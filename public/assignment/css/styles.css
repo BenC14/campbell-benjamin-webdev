@@ -5,6 +5,10 @@ select.form-control {
     margin-bottom: 15px;
 }
 
+.upload-button {
+    margin-bottom: 5px;
+}
+
 body {
     margin-top: 70px;
     margin-bottom: 60px;
@@ -122,4 +126,19 @@ a:hover {
     border-bottom-left-radius: 10px;
     opacity: 0.8;
     z-index: 2;
+}
+.flickr-search {
+    padding-bottom: 5px;
+}
+
+.flickr-row {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.flickr-images {
+    padding: 0px;
+}
+.flickr-images img {
+    max-width: 100%;
 }

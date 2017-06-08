@@ -15,19 +15,23 @@
         // event handlers
         model.createWidget = createWidget;
 
-        function init() {
-            model.widgets = widgetService.findAllWidgetsForPage(model.pageId);
-        }
-        init();
+        widgetService
+            .findAllWidgetsForPage(model.pageId)
+            .then(renderWidgets);
 
-        // implementation
+        function renderWidgets(widgets) {
+            model.widgets = widgets;
+        }
+
         function createWidget(type) {
             var newWidget = { "_id": "", "widgetType": "", "pageId": "", "width": "", "url": ""};
-            newWidget._id = (new Date()).getTime() + "";
+            //newWidget._id = (new Date()).getTime() + "";
             newWidget.widgetType = type;
             newWidget.pageId = model.pageId;
-            widgetService.createWidget(newWidget);
-            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget/'+newWidget._id);
+            widgetService.createWidget(model.pageId, newWidget)
+                .then(function(success) {
+                    $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget/'+success._id);
+                });
         }
 
     }

@@ -17,13 +17,22 @@
         model.updatePage = updatePage;
         model.deletePage = deletePage;
 
-        function init() {
-            model.pages = pageService.findAllPagesForWebsite(model.websiteId);
-            model.page = pageService.findPageById(model.pageId);
-            model.pageClone = angular.copy(model.page);
+        pageService
+            .findPageById(model.pageId)
+            .then(renderPage);
 
+        pageService
+            .findAllPagesForWebsite(model.userId)
+            .then(renderPages);
+
+        function renderPages(pages) {
+            model.pages = pages;
         }
-        init();
+
+        function renderPage(pages) {
+            model.page = pages;
+            model.pageClone = angular.copy(model.page);
+        }
 
         // implementation
         function createPage(page) {
@@ -34,6 +43,7 @@
 
         function updatePage(page) {
             pageService.updatePage(model.pageId, model.pageClone);
+            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
         }
 
         function deletePage(pageId) {
