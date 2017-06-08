@@ -17,9 +17,5 @@
             model.pages = pages;
         }
 
-        // function init() {
-        //     model.pages = pageService.findAllPagesForWebsite(model.websiteId);
-        // }
-        // init();
     }
 })();

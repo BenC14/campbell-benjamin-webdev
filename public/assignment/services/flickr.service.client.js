@@ -12,8 +12,6 @@
         return {
             searchPhotos: searchPhotos
         };
-
-
             function searchPhotos(searchTerm) {
                 console.log(urlBase);
                 var url = urlBase

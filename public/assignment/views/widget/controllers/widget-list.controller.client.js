@@ -18,12 +18,6 @@
             model.widgets = widgets;
         }
 
-        // function init() {
-        //     model.widgets = widgetService.findAllWidgetsForPage(model.pageId);
-        //     console.log(model.widgets);
-        // }
-        // init();
-
         model.getWidgetUrlForType = getWidgetUrlForType;
         model.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
         model.trustThisContent = trustThisContent;
@@ -37,7 +31,6 @@
             var youTubeLinkParts = youTubeLink.split('/');
             var id = youTubeLinkParts[youTubeLinkParts.length - 1];
             embedUrl += id;
-            console.log(embedUrl);
             return $sce.trustAsResourceUrl(embedUrl);
 
             //https://www.youtube.com/embed/AM2Ivdi9c4E

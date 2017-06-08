@@ -38,7 +38,6 @@ function createWidget(req, res) {
     var widget = req.body;
     widget._id = (new Date()).getTime() + "";
     widgets.push(widget);
-    //console.log(widgets);
     res.send(widget);
 }
 
@@ -71,14 +70,10 @@ function findWidgetById(req, res) {
     var widget = widgets.find(function (widget) {
         return widget._id === widgetId;
     });
-    // console.log(widgets);
-    // console.log(widgetId);
-    // console.log(widget);
     res.send(widget);
 }
 
 function uploadImage(req, res) {
-    console.log(req.body);
     var widgetId      = req.body.widgetId;
 
     var width         = req.body.width;

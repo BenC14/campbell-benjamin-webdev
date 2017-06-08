@@ -20,8 +20,6 @@ function findAllWebsitesForUser(req, res) {
     var resultSet = [];
     for(var w in websites) {
         if(websites[w].developerId === req.params.userId) {
-            // websites[w].created = new Date();
-            // websites[w].updated = new Date();
             resultSet.push(websites[w]);
         }
     }

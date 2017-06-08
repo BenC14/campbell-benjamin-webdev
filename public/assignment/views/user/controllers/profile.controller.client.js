@@ -18,12 +18,8 @@
 
         }
 
-        //model.user = userService.findUserById(userId);
         model.updateUser = updateUser;
-
-        // function updateUser() {
-        //     userService.updateUser(userId, model.userClone);
-        // }
+        model.deleteUser = deleteUser;
 
         function deleteUser(user) {
             userService

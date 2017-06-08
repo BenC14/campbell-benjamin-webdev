@@ -16,9 +16,5 @@
             model.websites = websites;
         }
 
-        // function init() {
-        //     model.websites = websiteService.findAllWebsitesForUser(model.userId);
-        // }
-        // init();
     }
 })();

@@ -2,11 +2,11 @@
     angular
         .module('WebAppMaker')
         .controller('widgetFlickrSearchController', widgetFlickrSearchController);
-    
+
     function widgetFlickrSearchController($routeParams,
-                                  flickrService,
-                                  widgetService,
-                                  $location) {
+                                          flickrService,
+                                          widgetService,
+                                          $location) {
 
         var model = this;
         model.userId = $routeParams['userId'];

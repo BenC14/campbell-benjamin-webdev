@@ -4,12 +4,9 @@
         .directive('wbdvSortable', wbdvSortable);
 
         function wbdvSortable($http, $routeParams) {
-            console.log('anything?');
-
             function linkFunction(scope, element) {
                 var initial = -1;
                 var final = -1;
-                console.log('in it');
                 $(element).sortable({
 
                     start: function (event, ui) {

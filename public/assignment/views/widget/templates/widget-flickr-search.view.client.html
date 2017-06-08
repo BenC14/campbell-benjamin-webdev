@@ -13,7 +13,8 @@
     </div>
 </nav>
 
-<div class="input-group">
+<div class="container-fluid">
+<div class="input-group flickr-search">
     <input ng-model="searchText" type="text" class="form-control">
     <span class="input-group-btn">
         <a ng-click="model.searchPhotos(searchText)" class="btn btn-default" type="button">
@@ -22,17 +23,19 @@
     </span>
 </div>
 
-<div class="row">
-    <div class="col-xs-4" ng-repeat="photo in model.photos.photo">
-        <img ng-click="model.selectPhoto(photo)"
+<div class="row flickr-row">
+    <div ng-repeat="photo in model.photos.photo">
+    <div class="col-xs-4 col-sm-3 col-md-2 flickr-images">
+        <img class="center-block" ng-click="model.selectPhoto(photo)"
              ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_q.jpg"/>
     </div>
+</div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#!/user/{{model.user._id}}"
+            <a href="#!/user/{{model.userId}}"
                class="navbar-notoggle"
                data-toggle="collapse"
                data-target="#theFooter">
@@ -42,7 +45,7 @@
 
         <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
             id="theFooter">
-            <li><a href="#!/user/{{model.user._id}}">
+            <li><a href="#!/user/{{model.userId}}">
                 <span class="hover-highlight color-white pull-right glyphicon glyphicon-user"></span>
             </a></li>
         </ul>

@@ -34,14 +34,6 @@
             model.pageClone = angular.copy(model.page);
         }
 
-        // function init() {
-        //     model.pages = pageService.findAllPagesForWebsite(model.websiteId);
-        //     model.page = pageService.findPageById(model.pageId);
-        //     model.pageClone = angular.copy(model.page);
-        //
-        // }
-        // init();
-
         // implementation
         function createPage(page) {
             page.websiteId = model.websiteId;

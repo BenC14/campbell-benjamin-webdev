@@ -22,11 +22,6 @@
             model.pages = pages;
         }
 
-        // function init() {
-        //     model.pages = pageService.findAllPagesForWebsite(model.websiteId);
-        // }
-        // init();
-
         // implementation
         function createPage(page) {
             page.websiteId = model.websiteId;

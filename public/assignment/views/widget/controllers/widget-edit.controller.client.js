@@ -2,7 +2,7 @@
     angular
         .module('WebAppMaker')
         .controller('widgetEditController', widgetEditController);
-    
+
     function widgetEditController($scope,
                                   $route,
                                   $routeParams,
@@ -19,43 +19,18 @@
         model.createWidget = createWidget;
         model.updateWidget = updateWidget;
         model.deleteWidget = deleteWidget;
-        //model.init = init;
 
-            widgetService
-                .findWidgetById(model.widgetId)
-                .then(renderWidget);
+        widgetService
+            .findWidgetById(model.widgetId)
+            .then(renderWidget);
 
-
-        // widgetService
-        //     .findAllWidgetsForPage(model.pageId)
-        //     .then(renderWidgets);
-        //
-        // function renderWidgets(widgets) {
-        //     model.widgets = widgets;
-        // }
 
         function renderWidget(widget) {
             model.widget = widget;
-            console.log(model.widget);
             model.widgetClone = angular.copy(model.widget);
 
         }
 
-        // function init() {
-        //     model.widgets = widgetService.findAllWidgetsForPage(model.pageId);
-        //     model.widget = widgetService.findWidgetById(model.widgetId);
-        //     model.widgetClone = angular.copy(model.widget);
-        // }
-        // init();
-
-        // function getType() {
-        //     widgetService
-        //         .findWidgetById(model.widgetId)
-        //         .then(function (widget) {
-        //             //model.widget.widgetType = widget;
-        //             return widget.widgetType;
-        //         });
-        // }
 
         // implementation
         function createWidget(widget) {
