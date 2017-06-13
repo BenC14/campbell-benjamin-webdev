@@ -24,10 +24,8 @@
         }
 
         function createWidget(type) {
-            var newWidget = { "_id": "", "widgetType": "", "pageId": "", "width": "", "url": ""};
-            //newWidget._id = (new Date()).getTime() + "";
-            newWidget.widgetType = type;
-            newWidget.pageId = model.pageId;
+            var newWidget = {"type": "", "width": "", "url": ""};
+            newWidget.type = type;
             widgetService.createWidget(model.pageId, newWidget)
                 .then(function(success) {
                     $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget/'+success._id);

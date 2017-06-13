@@ -22,7 +22,7 @@
             .then(renderPage);
 
         pageService
-            .findAllPagesForWebsite(model.userId)
+            .findAllPagesForWebsite(model.websiteId)
             .then(renderPages);
 
         function renderPages(pages) {

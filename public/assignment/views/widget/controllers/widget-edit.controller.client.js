@@ -31,7 +31,6 @@
 
         }
 
-
         // implementation
         function createWidget(widget) {
             widget.pageId = model.pageId;

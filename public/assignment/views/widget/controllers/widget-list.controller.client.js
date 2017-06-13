@@ -15,7 +15,16 @@
             .then(renderWidgets);
 
         function renderWidgets(widgets) {
-            model.widgets = widgets;
+            model.widgets = widgets.sort(orderWidgets);
+
+        }
+
+        function orderWidgets(widget1, widget2) {
+            if (widget1.order < widget2.order)
+                return -1;
+            if (widget1.order > widget2.order)
+                return 1;
+            return 0;
         }
 
         model.getWidgetUrlForType = getWidgetUrlForType;

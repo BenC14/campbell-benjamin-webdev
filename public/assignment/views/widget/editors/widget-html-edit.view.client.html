@@ -1,0 +1,25 @@
+<div class="container-fluid">
+
+    <label for="name">Name</label>
+    <input ng-model="model.widgetClone.name"
+           id="name"
+           type="text"
+           class="form-control"/>
+
+    <label for="html">HTML</label>
+    <div ng-model="model.widgetClone.text"
+         id="html"
+         type="text"
+         text-angular
+         class="pad-bottom"
+         ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+        ['indent','outdent'],['html']]">
+
+    </div>
+
+    <a ng-click="model.deleteWidget(model.widgetId)"
+       class="btn btn-danger btn-block">Delete</a>
+
+</div>
+
