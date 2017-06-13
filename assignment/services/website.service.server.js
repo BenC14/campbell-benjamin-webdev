@@ -47,8 +47,6 @@ function deleteWebsite(req, res) {
         });
 }
 
-
-
 function findWebsiteById(req, res) {
     var websiteId = req.params['websiteId'];
     websiteModel
