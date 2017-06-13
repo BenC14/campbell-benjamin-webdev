@@ -25,7 +25,6 @@ function deletePage(websiteId, pageId) {
 }
 
 function addPage(websiteId, pageId) {
-    console.log('in addPage');
     return websiteModel
         .findById(websiteId)
         .then(function (website) {

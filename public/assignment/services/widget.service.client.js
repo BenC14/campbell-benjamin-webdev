@@ -18,14 +18,12 @@
             var url = "/api/assignment/page/"+pageId+"/widget"
             return $http.post(url, widget)
                 .then(function (response) {
-                    console.log(response);
                     return response.data;
                 })
         }
 
 
         function updateWidget(widgetId, widget) {
-            console.log('in client service');
             var url = "/api/assignment/widget/" + widgetId;
             return $http.put(url, widget)
                 .then(function (response) {
@@ -34,7 +32,6 @@
         }
 
         function deleteWidget(widgetId) {
-            console.log('in client' + widgetId);
             var url = "/api/assignment/widget/" + widgetId;
             return $http.delete(url)
                 .then(function (response) {

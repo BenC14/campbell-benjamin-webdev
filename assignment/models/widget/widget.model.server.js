@@ -15,29 +15,23 @@ module.exports = widgetModel;
 
 function createWidget(pageId, widget) {
     widget._page = pageId;
-    //console.log(widget);
     return widgetModel
         .find({_page: pageId})
         .then(function (widgets) {
             var order = Date.now();
             widget.order = order;
-        return  widgetModel
-        .create(widget)
-        .then(function (widget) {
-            console.log('in then');
-            console.log(widget);
-            return pageModel
-                .addWidget(pageId, widget._id)
-                .then(function (response) {
-                    console.log('finished promise');
-                    console.log(response);
-                    return widgetModel.findWidgetById(response)
+            return  widgetModel
+                .create(widget)
+                .then(function (widget) {
+                    return pageModel
+                        .addWidget(pageId, widget._id)
                         .then(function (response) {
-                            console.log(response)
-                            return response;
+                            return widgetModel.findWidgetById(response)
+                                .then(function (response) {
+                                    return response;
+                                })
                         })
                 })
-        })
 
         });
 }
@@ -50,7 +44,6 @@ function findAllWidgetsForPage(pageId) {
 }
 
 function deleteWidget(widgetId) {
-    console.log(widgetId);
     return widgetModel
         .findById(widgetId)
         .then(function (widget) {
@@ -59,7 +52,7 @@ function deleteWidget(widgetId) {
         })
         .then(function(){
             return widgetModel
-            .remove({_id: widgetId})
+                .remove({_id: widgetId})
                 .then(function (status) {
                     return widget.save();
                 })
@@ -92,7 +85,7 @@ function reorderWidget(pageId, start, end) {
             doc[final].save();
             return doc;
         })
-            .then(function(response) {
-                return doc;
-            });
+        .then(function(response) {
+            return doc;
+        });
 }

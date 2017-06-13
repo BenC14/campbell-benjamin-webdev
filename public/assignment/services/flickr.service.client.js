@@ -13,7 +13,6 @@
             searchPhotos: searchPhotos
         };
             function searchPhotos(searchTerm) {
-                console.log(urlBase);
                 var url = urlBase
                     .replace("API_KEY", key)
                     .replace("TEXT", searchTerm);

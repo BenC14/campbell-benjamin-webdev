@@ -25,13 +25,10 @@ function deleteWidget(pageId, widgetId) {
 }
 
 function addWidget(pageId, widgetId) {
-    console.log('in add widget');
     return pageModel
         .findById(pageId)
         .then(function (page) {
             page.widgets.push(widgetId);
-            console.log('in page');
-            console.log(page);
             page.save();
             return widgetId;
         });
@@ -39,7 +36,6 @@ function addWidget(pageId, widgetId) {
 
 
 function createPage(websiteId, page) {
-    console.log('in page model');
     page._website = websiteId;
     return pageModel
         .create(page)
