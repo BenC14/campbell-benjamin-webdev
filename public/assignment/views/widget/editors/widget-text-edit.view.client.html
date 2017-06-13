@@ -1,0 +1,34 @@
+<div class="container-fluid">
+
+    <label for="name">Name</label>
+    <input ng-model="model.widgetClone.name"
+           id="name"
+           type="text"
+           class="form-control"/>
+
+    <label for="text">Text</label>
+    <input ng-model="model.widgetClone.text"
+           id="text"
+           class="form-control"/>
+
+    <label for="rows">Rows</label>
+    <input ng-model="model.widgetClone.rows"
+           id="rows"
+           class="form-control"
+           type="number"/>
+
+    <label for="placeholder">Placeholder</label>
+    <input ng-model="model.widgetClone.placeholder"
+           id="placeholder"
+           class="form-control"/>
+
+    <label for="formatted">Formatted</label>
+    <input ng-model="model.widgetClone.formatted"
+           id="formatted"
+           type="checkbox"/>
+
+    <a ng-click="model.deleteWidget(model.widgetId)"
+       class="btn btn-danger btn-block">Delete</a>
+
+</div>
+

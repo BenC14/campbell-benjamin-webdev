@@ -40,11 +40,16 @@
         }
 
         function updateWidget(widget) {
+            console.log(widget);
+            console.log('clone');
+            console.log(model.widgetClone);
             widgetService.updateWidget(model.widgetId, model.widgetClone);
             $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
         }
 
         function deleteWidget(widgetId) {
+            console.log('in controller');
+            console.log(widgetId);
             widgetService.deleteWidget(widgetId);
             $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
         }
