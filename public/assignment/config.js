@@ -18,6 +18,14 @@
                 controller: 'registerController',
                 controllerAs: 'model'
             })
+            .when('/profile', {
+                templateUrl: 'views/user/templates/profile.view.client.html',
+                controller: 'profileController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
             .when('/user/:userId', {
                 templateUrl: 'views/user/templates/profile.view.client.html',
                 controller: 'profileController',
@@ -76,5 +84,21 @@
                 controllerAs: 'model'
         })
 
+    }
+
+    function checkLoggedIn($q, $location, userService) {
+        console.log('in checked logged in');
+        var deferred = $q.defer();
+        userService
+            .checkLoggedIn()
+            .then(function (currentUser) {
+                if(currentUser === '0') {
+                    deferred.reject();
+                    $location.url('/login');
+                } else {
+                    deferred.resolve(currentUser);
+                }
+            });
+        return deferred.promise;
     }
 })();
