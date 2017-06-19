@@ -42,6 +42,7 @@
         }
 
         function updateUser() {
+
             userService
                 .updateUser(userId, model.userClone)
                 .then(function () {

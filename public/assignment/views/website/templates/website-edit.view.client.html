@@ -69,12 +69,15 @@
             </ul>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-md-8-absolute">
+            <form name="model.myForm" novalidate>
             <label for="name"> Website Name</label>
             <input ng-model="model.websiteClone.name"
                    id="name"
                    type="text"
                    class="form-control"
-                   placeholder="Website Name"/>
+                   placeholder="Website Name"
+                   ng-class="model.classes"
+                   required/>
 
             <label for="description">Website Description</label>
             <textarea ng-model="model.websiteClone.description"
@@ -82,6 +85,7 @@
                       rows="5"
                       placeholder="description"
                       class="form-control"></textarea>
+            </form>
 
             <a ng-click="model.deleteWebsite(model.websiteId)"
                class="btn btn-block btn-danger">

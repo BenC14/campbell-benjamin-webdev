@@ -1,10 +1,13 @@
 <div class="container-fluid">
+    <form name="model.myForm" novalidate>
 
     <label for="name">Name</label>
     <input ng-model="model.widgetClone.name"
            id="name"
            type="text"
-           class="form-control"/>
+           class="form-control"
+           ng-class="model.classes"
+           required/>
 
     <label for="text">Text</label>
     <input ng-model="model.widgetClone.text"
@@ -24,7 +27,7 @@
            id="video-width"
            type="text"
            class="form-control"/>
-
+    </form>
     <a ng-click="model.deleteWidget(model.widgetId)"
        class="btn btn-danger btn-block">Delete</a>
 

@@ -1,6 +1,6 @@
 var app = require('../../express');
 var userModel = require('../models/user/user.model.server');
-
+var bcrypt = require("bcrypt-nodejs");
 var passport      = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(localStrategy));
@@ -35,10 +35,6 @@ app.get('/auth/facebook/callback',
         successRedirect: '/assignment/#!/profile',
         failureRedirect: '/assignment/#!/login'
     }));
-
-
-
-
 
 function facebookStrategy(token, refreshToken, profile, done) {
     console.log('in strategy');
@@ -82,6 +78,7 @@ function facebookStrategy(token, refreshToken, profile, done) {
 
 function register(req, res) {
     var userObj = req.body;
+    userObj.password = bcrypt.hashSync(userObj.password);
     userModel
         .createUser(userObj)
         .then(function (user) {
@@ -108,10 +105,11 @@ function checkLoggedIn(req, res) {
 
 
 function localStrategy(username, password, done) {
+    console.log('in local strat');
     userModel
-        .findUserByCredentials(username, password)
+        .findUserByUsername(username)
         .then(function (user) {
-            if(user) {
+            if(user && bcrypt.compareSync(password, user.password)) {
                 done(null, user);
             } else {
                 done(null, false);
@@ -124,9 +122,6 @@ function localStrategy(username, password, done) {
 function login(req, res) {
     res.json(req.user);
 }
-
-
-
 
 function deleteUser(req, res) {
     var userId = req.params.userId;
@@ -161,19 +156,42 @@ function createUser(req, res) {
 
 function findUserByCredentials(req, res) {
     var username = req.query['username'];
-    var password = req.query['password'];
-
-    userModel
-        .findUserByCredentials(username, password)
-        .then(function (user) {
-            if (user != null) {
-                res.json(user);
-            } else {
+    console.log(username);
+    console.log(req.query['password']);
+    if (req.query['password'] != undefined) {
+        var password = req.query['password'];
+        userModel
+            .findUserByCredentials(username, password)
+            .then(function (user) {
+                if (user != null) {
+                    res.json(user);
+                } else {
+                    res.sendStatus(404);
+                }
+            }, function (err) {
                 res.sendStatus(404);
-            }
-        }, function (err) {
-            res.sendStatus(404);
-        });
+            });
+    } else {
+        userModel
+            .findUserByUsername(username)
+            .then(function (response) {
+                console.log('response');
+                console.log(response);
+                if (response != null) {
+                    if (response.availble) {
+                        console.log('it was available');
+                        return res.json(response);
+                    } else {
+                        return res.json(response);
+                    }
+                } else {
+                    res.sendStatus(404);
+                }
+
+            // }, function (err) {
+            //     res.sendStatus(404);
+            });
+    }
 }
 
 function findUserById(req, res) {

@@ -36,12 +36,20 @@
 
         // implementation
         function createPage(page) {
+            if(model.myForm.$invalid) {
+                model.classes = 'clicked';
+                return;
+            }
             page.websiteId = model.websiteId;
             pageService.createPage(page);
             $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
         }
 
         function updatePage(page) {
+            if(model.myForm.$invalid) {
+                model.classes = 'clicked';
+                return;
+            }
             pageService.updatePage(model.pageId, model.pageClone);
             $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
         }

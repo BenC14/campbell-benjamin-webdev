@@ -49,6 +49,7 @@
                 username: username,
                 password: password
             };
+            console.log('in client login');
             return $http.post(url, credentials)
                 .then(function (response) {
                     return response.data;
@@ -64,12 +65,14 @@
         }
 
         function findUserByUsername(username) {
-            var user = users.find(function (user) {
-                return user.username === username;
-            });
-            if(typeof user === 'undefined')
-                return null;
-            return user;
+            console.log('inclient');
+            var url = "/api/assignment/user?username=" + username;
+            return $http.get(url)
+                .then(function (response) {
+                    console.log('response in client service');
+                    console.log(response);
+                    return response.data;
+                });
         }
 
         function updateUser(userId, user) {
