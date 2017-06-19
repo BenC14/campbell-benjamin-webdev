@@ -109,13 +109,18 @@ function localStrategy(username, password, done) {
     userModel
         .findUserByUsername(username)
         .then(function (user) {
-            if(user && bcrypt.compareSync(password, user.password)) {
+            console.log('ran');
+            console.log(user);
+            if(user.password && bcrypt.compareSync(password, user.password)) {
+                console.log('in found');
                 done(null, user);
             } else {
+                console.log('in else');
                 done(null, false);
             }
-        }, function (error) {
-            done(error, false);
+        // }, function (error) {
+        //     console.log('in error');
+        //     done(error, false);
         });
 }
 
