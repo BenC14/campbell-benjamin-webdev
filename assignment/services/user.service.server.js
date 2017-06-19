@@ -37,8 +37,6 @@ app.get('/auth/facebook/callback',
     }));
 
 function facebookStrategy(token, refreshToken, profile, done) {
-    console.log('in strategy');
-    console.log(profile);
     userModel
         .findUserByFacebookId(profile.id)
         .then(
@@ -95,7 +93,6 @@ function logout(req, res) {
 }
 
 function checkLoggedIn(req, res) {
-    console.log(req.user);
     if(req.isAuthenticated()) {
         res.json(req.user);
     } else {
@@ -105,22 +102,16 @@ function checkLoggedIn(req, res) {
 
 
 function localStrategy(username, password, done) {
-    console.log('in local strat');
     userModel
         .findUserByUsername(username)
         .then(function (user) {
-            console.log('ran');
-            console.log(user);
             if(user.password && bcrypt.compareSync(password, user.password)) {
-                console.log('in found');
                 done(null, user);
             } else {
-                console.log('in else');
                 done(null, false);
             }
-        // }, function (error) {
-        //     console.log('in error');
-        //     done(error, false);
+        }, function (error) {
+            done(error, false);
         });
 }
 
@@ -161,8 +152,6 @@ function createUser(req, res) {
 
 function findUserByCredentials(req, res) {
     var username = req.query['username'];
-    console.log(username);
-    console.log(req.query['password']);
     if (req.query['password'] != undefined) {
         var password = req.query['password'];
         userModel
@@ -180,11 +169,8 @@ function findUserByCredentials(req, res) {
         userModel
             .findUserByUsername(username)
             .then(function (response) {
-                console.log('response');
-                console.log(response);
                 if (response != null) {
                     if (response.availble) {
-                        console.log('it was available');
                         return res.json(response);
                     } else {
                         return res.json(response);
@@ -193,8 +179,8 @@ function findUserByCredentials(req, res) {
                     res.sendStatus(404);
                 }
 
-            // }, function (err) {
-            //     res.sendStatus(404);
+            }, function (err) {
+                res.sendStatus(404);
             });
     }
 }

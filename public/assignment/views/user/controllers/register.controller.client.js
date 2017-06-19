@@ -11,7 +11,6 @@
         model.register = register;
 
         function register(username, password, password2) {
-            console.log('in register');
             if(model.myForm.$invalid) {
                 model.myForm.classes = 'clicked';
                 return;
@@ -24,8 +23,6 @@
 
             return userService.findUserByUsername(username)
                 .then(function(response) {
-                    console.log(response);
-                    console.log('in find userbyusername');
                     var available = response.availble;
 
                     if(available != 'true') {

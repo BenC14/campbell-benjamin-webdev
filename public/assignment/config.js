@@ -87,7 +87,6 @@
     }
 
     function checkLoggedIn($q, $location, userService) {
-        console.log('in checked logged in');
         var deferred = $q.defer();
         userService
             .checkLoggedIn()

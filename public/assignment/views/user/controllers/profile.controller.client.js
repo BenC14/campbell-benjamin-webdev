@@ -11,16 +11,6 @@
         model.user = currentUser;
         model.userClone = angular.copy(model.user);
 
-        // userService
-        //     .findUserById(userId)
-        //     .then(renderUser);
-        //
-        // function renderUser (user) {
-        //     model.user = user;
-        //     model.userClone = angular.copy(model.user);
-        //
-        // }
-
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
         model.logout = logout;
