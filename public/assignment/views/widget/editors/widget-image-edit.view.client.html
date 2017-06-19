@@ -1,10 +1,12 @@
 <div class="container-fluid">
-
+    <form name="model.myForm" novalidate>
     <label for="name">Name</label>
     <input ng-model="model.widgetClone.name"
            id="name"
            type="text"
-           class="form-control"/>
+           class="form-control"
+           ng-class="model.classes"
+           required/>
 
     <label for="text">Text</label>
     <input ng-model="model.widgetClone.text"
@@ -36,7 +38,7 @@
         <input  name="widgetId"  value="{{model.widgetId}}"   style="display: none"/>
         <button type="submit"    class="btn btn-block btn-primary upload-button">Upload Image</button>
     </form>
-
+    </form>
 
     <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/search"
        class="btn btn-success btn-block">Search Flickr</a>

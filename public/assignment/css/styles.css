@@ -159,3 +159,8 @@ a:hover {
 .pad-bottom {
     padding-bottom: 10px;
 }
+
+input.ng-invalid.clicked{
+    background-color: #ffdddd;
+}
+

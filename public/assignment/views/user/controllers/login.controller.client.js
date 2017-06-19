@@ -8,18 +8,23 @@
         var model = this;
 
         model.login = function (username, password) {
+            if(model.myForm.$invalid) {
+                model.classes = 'clicked';
+                return
+            }
 
             userService
-                .findUserByCredentials(username, password)
+
+                .login(username, password)
                 .then(login, handleError);
 
             function handleError(error) {
-                model.message = "Username " + username + " not found, please try again";
+                model.message = "Username or Password is incorrect, please try again";
             }
 
             function login(found) {
                 if(found !== null) {
-                    $location.url('/user/' + found._id);
+                    $location.url('/profile');
                     // $scope.message = "Welcome " + username;
                 } else {
                     model.message = "Username " + username + " not found, please try again";

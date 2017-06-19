@@ -34,6 +34,10 @@
         }
 
         function updateWebsite() {
+            if(model.myForm.$invalid) {
+                model.classes = 'clicked';
+                return;
+            }
             websiteService.updateWebsite(model.websiteId, model.websiteClone);
             $location.url('/user/'+model.userId+'/website');
         }

@@ -29,7 +29,8 @@
            type="text"
            placeholder="username"
            id="username"
-           class="form-control"/>
+           class="form-control"
+           readonly/>
 
     <label for="email">Email</label>
     <input ng-model="model.userClone.email"
@@ -57,14 +58,14 @@
 
     <a href="#!/user/{{model.user._id}}/website" class="btn btn-block btn-primary">Websites</a>
 
-    <a href="#!/login" class="btn btn-block btn-danger">Logout</a>
+    <a ng-click="model.logout()" class="btn btn-block btn-danger">Logout</a>
 </div>
 
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#!/user/{{model.user._id}}"
+            <a href="#!/profile"
                class="navbar-notoggle"
                data-toggle="collapse"
                data-target="#theFooter">
@@ -74,7 +75,7 @@
 
         <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
             id="theFooter">
-            <li><a href="#!/user/{{model.user._id}}">
+            <li><a href="#!/profile">
                 <span class="hover-highlight color-white pull-right glyphicon glyphicon-user"></span>
             </a></li>
         </ul>

@@ -33,12 +33,20 @@
 
         // implementation
         function createWidget(widget) {
+            if(model.myForm.$invalid) {
+                model.classes = 'clicked';
+                return;
+            }
             widget.pageId = model.pageId;
             widgetService.createWidget(model.pageId, widget);
             $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
         }
 
         function updateWidget(widget) {
+            if(model.myForm.$invalid) {
+                model.classes = 'clicked';
+                return;
+            }
             widgetService.updateWidget(model.widgetId, model.widgetClone);
             $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
         }

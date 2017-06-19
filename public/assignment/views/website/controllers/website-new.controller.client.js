@@ -23,6 +23,10 @@
 
         // implementation
         function createWebsite(website) {
+            if(model.myForm.$invalid) {
+                model.classes = 'clicked';
+                return;
+            }
             website.developerId = model.userId;
             websiteService.createWebsite(model.userId, website);
             $location.url('/user/'+model.userId+'/website');

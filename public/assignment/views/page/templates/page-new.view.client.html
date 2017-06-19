@@ -71,12 +71,15 @@
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-8 col-md-8-absolute">
+            <form name="model.myForm" novalidate>
             <label for="name">Name</label>
             <input ng-model="model.page.name"
                    id="name"
                    type="text"
                    class="form-control"
-                   placeholder="Page Name"/>
+                   placeholder="Page Name"
+                   ng-class="model.classes"
+                   required/>
 
             <label for="description">Title</label>
             <input ng-model="model.page.description"
@@ -85,6 +88,7 @@
                    placeholder="Page Title"
                    class="form-control"
             />
+            </form>
         </div>
     </div>
 </div>
@@ -104,7 +108,7 @@
         <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
             id="theFooter">
             <li>
-                <a href="#!/user/{{model.userId}}">
+                <a href="#!/profile">
                     <span class=" hover-highlight color-blue pull-right glyphicon glyphicon-user"></span>
                 </a>
             </li>
