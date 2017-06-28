@@ -1,0 +1,132 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 hidden-sm hidden-xs">
+                <div class="navbar-header">
+                    <div>
+                        <a href="#!/user/{{model.userId}}/deck">
+                            <span class="pad-right pad-top-bottom hover-highlight color-white glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class=" navbar-brand color-white">
+                Decks
+                </div>
+            </div>
+
+            <div class="col-md-1 hidden-sm hidden-xs">
+                <a href="#!/user/{{model.userId}}/deck/new">
+                    <span class="pad-right pad-top-bottom hover-highlight color-white pull-right glyphicon glyphicon-plus"></span>
+                </a>
+            </div>
+
+            <div class="col-xs-1 hidden-md hidden-lg">
+                <a href="#!/user/{{model.userId}}/deck">
+                    <span class="pad-top-bottom hover-highlight color-white pull-left glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+
+            <div class="col-md-7 col-sm-9 col-xs-9">
+                <div class=" navbar-brand color-white">
+                New Deck
+                </div>
+            </div>
+
+            <div class="col-md-1 col-sm-2 col-xs-2">
+                <a ng-click="model.createDeck(model.deck)">
+                    <span class="pad-right pad-top-bottom hover-highlight color-white pull-right glyphicon glyphicon-ok"></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 hidden-sm hidden-xs scrollable-left">
+            <ul class="list-group">
+                <li ng-repeat="deck in model.decks" class="list-group-item">
+                    <div class="row">
+
+                        <div class="col-sm-10 col-xs-10">
+                            <a href="#!/user/{{model.userId}}/deck/{{deck._id}}/page">
+                                {{deck.name}}
+                            </a>
+                        </div>
+
+                        <div class="col-sm-2 col-xs-2">
+                            <a href="#!/user/{{model.userId}}/deck/{{deck._id}}">
+                                <span class="glyphicon glyphicon-cog pull-right"></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-md-8-absolute">
+            <form name="model.myForm" novalidate>
+            <label for="name">Name</label>
+            <input ng-model="model.deck.name"
+                   id="name"
+                   type="text"
+                   class="form-control"
+                   placeholder="Name"
+                   ng-class="model.classes"
+                   required/>
+
+                <label class="mr-sm-2" for="inlineFormCustomSelect">Class</label>
+             <select
+                     class="custom-select mb-2 mr-sm-2 mb-sm-0"
+                     ng-model="model.deck.heroClass"
+                     id="inlineFormCustomSelect">
+                    <option selected>Choose...</option>
+                    <option value="Druid">Druid</option>
+                    <option value="Hunter">Hunter</option>
+                    <option value="Mage">Mage</option>
+                    <option value="Paladin">Paladin</option>
+                    <option value="Priest">Priest</option>
+                    <option value="Rogue">Rogue</option>
+                    <option value="Shaman">Shaman</option>
+                    <option value="Warlock">Warlock</option>
+                    <option value="Warrior">Warrior</option>
+                </select>
+
+                {{model.heroClass}}
+
+
+                <label for="description">Description</label>
+            <textarea ng-model="model.deck.description"
+                      id="Description"
+                      rows="5"
+                      placeholder="Description"
+                      class="form-control"></textarea>
+            </form>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <a href="#!/profile"
+               class="navbar-notoggle"
+               data-toggle="collapse"
+               data-target="#theFooter">
+                <span class=" pull-right glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
+            id="theFooter">
+            <li><a href="#!/profile">
+                <span class=" hover-highlight color-white pull-right glyphicon glyphicon-user"></span>
+            </a></li>
+        </ul>
+
+    </div>
+</nav>
