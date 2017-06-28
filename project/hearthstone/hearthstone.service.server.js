@@ -1,4 +1,4 @@
-// https://developer.oxforddictionaries.com/documentation
+
 
 var q = require('q');
 const app = require('../../express');
@@ -7,7 +7,7 @@ const https = require('https');
 app.get('/api/hearthstone/query/cards/classes/:heroClass', searchQuery);
 
 var appId   = process.env.OXFORD_APP_ID;
-var appKey  = "8dhxf2sYEYmshBEiETtI0lVYrvTap1ytGpGjsnbVJZ8Bdbz9h6";
+var appKey  = process.env.HEARTHSTONE_API_KEY;
 var baseUrl = process.env.OXFORD_API_BASE_URL;
 
 function searchQuery(req, res) {
