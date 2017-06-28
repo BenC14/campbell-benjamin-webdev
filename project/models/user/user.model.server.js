@@ -7,6 +7,7 @@ userProjectModel.createUser = createUser;
 userProjectModel.findUserById = findUserById;
 userProjectModel.findUserByCredentials = findUserByCredentials;
 userProjectModel.findUserByUsername = findUserByUsername;
+userProjectModel.findAllUsers = findAllUsers;
 userProjectModel.deleteUser = deleteUser;
 userProjectModel.updateUser = updateUser;
 //userProjectModel.findUserByUsername = findUserByUsername;
@@ -78,6 +79,10 @@ function findUserByUsername(username) {
 
 function findUserById(userId) {
     return userProjectModel.findById(userId);
+}
+
+function findAllUsers() {
+    return userProjectModel.find({});
 }
 
 function createUser(user) {

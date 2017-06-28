@@ -6,7 +6,20 @@
     function configuration($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'home.html'
+                templateUrl: 'views/home/templates/home.html',
+                controller: 'homeController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkCurrentUser
+                }
+            })
+            .when('/admin', {
+                templateUrl: 'views/admin/templates/admin.view.client.html',
+                controller: 'adminController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkAdmin
+                }
             })
             .when('/login', {
                 templateUrl: 'views/user/templates/login.view.client.html',
@@ -47,6 +60,35 @@
                 controllerAs: 'model'
             })
 
+    }
+
+    function checkCurrentUser($q, $location, userProjectService) {
+        var deferred = $q.defer();
+        userProjectService
+            .checkLoggedIn()
+            .then(function (currentUser) {
+                if(currentUser === '0') {
+                    deferred.resolve({});
+                } else {
+                    deferred.resolve(currentUser);
+                }
+            });
+        return deferred.promise;
+    }
+
+    function checkAdmin($q, $location, userProjectService) {
+        var deferred = $q.defer();
+        userProjectService
+            .checkAdmin()
+            .then(function (currentUser) {
+                if(currentUser === '0') {
+                    deferred.resolve({});
+                    $location.url('/');
+                } else {
+                    deferred.resolve(currentUser);
+                }
+            });
+        return deferred.promise;
     }
 
     function checkLoggedIn($q, $location, userProjectService) {

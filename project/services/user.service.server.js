@@ -18,12 +18,14 @@ passport.deserializeUser(deserializeUser);
 
 console.log('in user service')
 app.get   ('/api/project/user', findUserByCredentials);
+app.get   ('/api/project/user/all', isAdmin, findAllUsers);
 app.get   ('/api/project/user/:userId', findUserById);
 app.post  ('/api/project/user', createUser);
 app.put   ('/api/project/user/:userId', updateUser);
 app.delete('/api/project/user/:userId', deleteUser);
 
 app.post  ('/api/project/login', passport.authenticate('local'), login);
+app.get   ('/api/project/checkAdmin', checkAdmin);
 app.get   ('/api/project/checkLoggedIn', checkLoggedIn);
 app.post  ('/api/project/logout', logout);
 app.post  ('/api/project/register', register);
@@ -97,6 +99,16 @@ function checkLoggedIn(req, res) {
     console.log(req.user);
     console.log(req.isAuthenticated());
     if(req.isAuthenticated()) {
+        res.json(req.user);
+    } else {
+        res.send('0');
+    }
+}
+
+function checkAdmin(req, res) {
+    console.log(req.user);
+    console.log(req.isAuthenticated());
+    if(req.isAuthenticated() && req.user.roles.indexOf('ADMIN') > -1) {
         res.json(req.user);
     } else {
         res.send('0');
@@ -202,6 +214,30 @@ function findUserById(req, res) {
             res.json(user);
         });
 
+}
+
+function findAllUsers(req, res) {
+    // var username = req.user['username'];
+    // var password = req.user['password'];
+    //
+    // if (username && password) {
+    //     return findUserByCredentials(req, res);
+    // }
+
+    userProjectModel
+        .findAllUsers()
+        .then(function(users) {
+            res.json(users);
+        })
+
+}
+
+function isAdmin(req, res, next) {
+    if (req.isAuthenticated() && req.user.roles.indexOf('ADMIN') > -1) {
+        next();
+    } else {
+        res.sendStatus(401);
+    }
 }
 
 function serializeUser(user, done) {

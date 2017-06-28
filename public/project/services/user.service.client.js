@@ -10,11 +10,13 @@
             findUserByCredentials: findUserByCredentials,
             findUserById: findUserById,
             findUserByUsername: findUserByUsername,
+            findAllUsers: findAllUsers,
             updateUser: updateUser,
             deleteUser: deleteUser,
             register: register,
             logout: logout,
             checkLoggedIn: checkLoggedIn,
+            checkAdmin: checkAdmin,
             login: login
 
         };
@@ -38,6 +40,17 @@
         function checkLoggedIn() {
             console.log('in user service checked');
             var url = "/api/project/checkLoggedIn";
+            return $http.get(url)
+                .then(function (response) {
+                    console.log('in checked logged in response');
+                    console.log(response);
+                    return response.data;
+                });
+        }
+
+        function checkAdmin() {
+            console.log('in user service checked');
+            var url = "/api/project/checkAdmin";
             return $http.get(url)
                 .then(function (response) {
                     console.log('in checked logged in response');
@@ -104,6 +117,14 @@
 
         function findUserById(userId) {
             var url = "/api/project/user/" + userId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function findAllUsers() {
+            var url = "/api/project/user/all";
             return $http.get(url)
                 .then(function (response) {
                     return response.data;

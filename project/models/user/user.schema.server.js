@@ -6,6 +6,7 @@ var userProjectSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     decks: [{type: mongoose.Schema.Types.ObjectId, ref: "deckModel"}],
+    roles: [{type: String, default: 'USER', enum: ['USER', 'ADMIN']}],
     dateCreated: {type: Date, default: Date.now},
     google: {
         id:    String,

@@ -80,7 +80,10 @@
                    required/>
 
                 <div class="input-group flickr-search">
-                    <input ng-model="model.searchText" type="text" class="form-control">
+                    <input ng-model="model.searchText"
+                           type="text"
+                           class="form-control"
+                           placeholder="Leeroy Jenkins">
                     <span class="input-group-btn">
                         <a ng-click="model.searchCards(searchText)" class="btn btn-default" type="button">
                             <span class="glyphicon glyphicon-search"></span>
@@ -89,7 +92,7 @@
                 </div>
 
                 <div class="btn-group" ng-click="model.classChanged()">
-                    <label class="btn btn-primary" ng-model="model.classToggleValue" btn-radio="'hero'">{{model.deck.heroClass}}</label>
+                    <label class="btn btn-primary" ng-class="{active: true}" ng-model="model.classToggleValue" btn-radio="'hero'">{{model.deck.heroClass}}</label>
                     <label class="btn btn-primary" ng-model="model.classToggleValue" btn-radio="'neutral'">Neutral</label>
                 </div>
 
@@ -108,12 +111,12 @@
                     <div class="col-md-9 col-sm-9 container-fluid" wbdv-sortable>
                         <div ng-repeat="selectableCard in model.cards[model.currentlyRendering] | filter:{'name':model.searchText, 'type':'!Hero'}"
                              class="wd-card col-md-4 col-sm-4 col-xs-6">
-                            <div class="wd-toolbar">
-                                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-                                    <span class="glyphicon glyphicon-cog"></span>
-                                </a>
-                                <span class="glyphicon glyphicon-align-justify"></span>
-                            </div>
+                            <!--<div class="wd-toolbar">-->
+                                <!--<a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">-->
+                                    <!--<span class="glyphicon glyphicon-cog"></span>-->
+                                <!--</a>-->
+                                <!--<span class="glyphicon glyphicon-align-justify"></span>-->
+                            <!--</div>-->
                             <img ng-click="model.addCardToDeck(selectableCard)" ng-src="{{selectableCard.img}}" width="100%" >
                         </div>
                     </div>
@@ -122,8 +125,9 @@
 
                         <ul ng-repeat="card in model.deckClone.cards | orderBy:'cost'" class="list-group card-list">
                             <li class="list-group-item card-list-item" ng-click="model.removeCardFromDeck(card)">
-                                <td>{{card.name}}</td>
-                                <td>{{card.quantity}}</td>
+                                <td><span class="pull-left mana-cost"> {{card.cost}}</span></td>
+                                <td><span class="card-name">{{card.name}}</span></td>
+                                <td><span class="pull-right">{{card.quantity}}</span></td>
                                 <td><span width="5px" class="{{card.rarity}}">.</span></td>
                             </li>
                         </ul>

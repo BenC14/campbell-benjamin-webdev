@@ -221,6 +221,21 @@ input.ng-invalid.clicked{
     top: 0;
     right: 0;
 }
+.mana-cost {
+    background-color: #337ab7;
+    height: 100%;
+    width: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding-top: 10px;
+}
+.card-name {
+    padding-left: 10px;
+}
+
+
 
 /* css for slider toggles */
 .switch {
