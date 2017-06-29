@@ -1,0 +1,176 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Hearthstone Deck Builder</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#!/">Home</a></li>
+                <li ng-if="model.currentUser._id">
+                    <a href="#!/user/{{model.currentUser._id}}/deck">Decks
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-if="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-if="model.currentUser._id"><a href="#!/profile">Profile</a></li>
+                <li ng-if="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
+                <li class="active" ng-if="model.currentUser.roles.indexOf('ADMIN') > -1"><a href="#!/admin">Admin</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+<div class="btn-group updateButton" ng-click="model.classChanged()">
+    <label class="btn btn-primary" ng-class="{active: true}" ng-model="model.typeToggleValue" btn-radio="'users'">Users</label>
+    <label class="btn btn-primary" ng-model="model.typeToggleValue" btn-radio="'decks'">Decks</label>
+</div>
+
+<div ng-if="model.typeToggleValue == 'users'">
+<ul class="list-group">
+    <li class="list-group-item active hidden-xs">
+        <div class="row">
+            <div class="col-sm-2 hidden-xs">Username</div>
+            <div class="col-sm-2 hidden-xs">First Name</div>
+            <div class="col-sm-2 hidden-xs">Last Name</div>
+            <div class="col-sm-3 hidden-xs">Email</div>
+            <div class="col-sm-1 hidden-xs">Decks</div>
+            <div class="col-sm-1 hidden-xs">Update</div>
+            <div class="col-sm-1 hidden-xs">Delete</div>
+        </div>
+    </li>
+    <li ng-repeat="user in model.users | orderBy:'username'"
+        class="list-group-item">
+        <div class="row">
+            <div class="col-sm-2">
+                <label class="hidden-sm hidden-md hidden-lg" for="username">Username</label>
+                <input ng-model="user.username"
+                       value="Username"
+                       type="text"
+                       placeholder="Username"
+                       id="username"
+                       class="form-control"/>
+            </div>
+            <div class="col-sm-2">
+                <label class="hidden-sm hidden-md hidden-lg" for="firstName">First Name</label>
+                <input ng-model="user.firstName"
+                       value="First Name"
+                       type="text"
+                       placeholder="First Name"
+                       id="firstName"
+                       class="form-control"/>
+            </div>
+            <div class="col-sm-2">
+                <label class="hidden-sm hidden-md hidden-lg" for="lastName">Last Name</label>
+                <input ng-model="user.lastName"
+                       value="Last Name"
+                       type="text"
+                       placeholder="Last Name"
+                       id="lastName"
+                       class="form-control"/>
+            </div>
+            <div class="col-sm-3">
+                <label class="hidden-sm hidden-md hidden-lg" for="email">Email</label>
+                <input ng-model="user.email"
+                       value="email"
+                       type="email"
+                       placeholder="Email Address"
+                       id="email"
+                       class="form-control"/>
+            </div>
+            <div class="col-sm-1">
+                <a ng-click="model.seeUsersDecks(user)">Decks</a>
+            </div>
+            <div ng-click="model.updateOtherUser(user)" class="btn btn-primary col-sm-1">Update</div>
+            <div ng-click="model.deleteOtherUser(user)" class="btn btn-danger col-sm-1">Delete</div>
+        </div>
+
+    </li>
+</ul>
+</div>
+
+<div ng-if="model.typeToggleValue == 'decks'">
+    <ul class="list-group">
+        <li class="list-group-item active hidden-xs">
+            <div class="row">
+                <div class="col-sm-2 hidden-xs">Deck Name</div>
+                <div class="col-sm-2 hidden-xs">Created By</div>
+                <div class="col-sm-2 hidden-xs">Class</div>
+                <div class="col-sm-2 hidden-xs">Game Type</div>
+                <div class="col-sm-1 hidden-xs">Security</div>
+                <div class="col-sm-1 hidden-xs">Details</div>
+                <div class="col-sm-1 hidden-xs">Update</div>
+                <div class="col-sm-1 hidden-xs">Delete</div>
+            </div>
+        </li>
+        <li ng-repeat="deck in model.decks | orderBy:'_user'"
+            class="list-group-item">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="hidden-sm hidden-md hidden-lg" for="deckName">Deck Name</label>
+                    <input ng-model="deck.name"
+                           value="Deck Name"
+                           type="text"
+                           placeholder="Deck Name"
+                           id="deckName"
+                           class="form-control"/>
+                </div>
+                <div class="col-sm-2">
+                    <label class="hidden-sm hidden-md hidden-lg" for="deckUsername">Username</label>
+                    <input ng-model="deck._user.username"
+                           value="Username"
+                           type="text"
+                           placeholder="Username"
+                           id="deckUsername"
+                           class="form-control"
+                           readonly/>
+                </div>
+                <div class="col-sm-2">
+                    <label class="hidden-sm hidden-md hidden-lg" for="heroClass">Class</label>
+                    <input ng-model="deck.heroClass"
+                           value="Class"
+                           type="text"
+                           placeholder="Mage"
+                           id="heroClass"
+                           class="form-control"
+                           readonly/>
+                </div>
+                <div class="col-sm-2">
+                    <label class="hidden-sm hidden-md hidden-lg" for="gameType">Game Type</label>
+                    <input ng-model="deck.gameType"
+                           value="Game Type"
+                           type="text"
+                           placeholder="Standard"
+                           id="gameType"
+                           class="form-control"
+                           readonly/>
+                </div>
+                <div class="col-sm-1">
+                    <label class="hidden-sm hidden-md hidden-lg" for="security">Public/Private</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0"
+                            ng-model="deck.security"
+                            id="security">
+                        <option selected>{{deck.security}}</option>
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select>
+                </div>
+                <div class="col-sm-1">
+                    <a class="btn btn-primary" role="button" aria-pressed="true" href="#!/user/{{deck._user}}/deck/{{deck._id}}/details">View</a>
+                </div>
+                <div ng-click="model.updateOtherDeck(deck)" class="btn btn-primary col-sm-1">Update</div>
+                <div ng-click="model.deleteOtherDeck(deck)" class="btn btn-danger col-sm-1">Delete</div>
+            </div>
+
+        </li>
+    </ul>
+</div>
+
+</div>

@@ -1,0 +1,107 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button"
+                    class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#navbar"
+                    aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand"
+               href="#">Hearthstone Deck Builder</a>
+        </div>
+        <div id="navbar"
+             class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#!/">Home</a></li>
+                <li ng-if="model.currentUser._id">
+                    <a href="#!/user/{{model.currentUser._id}}/deck">Decks
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-if="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-if="model.currentUser._id"><a href="#!/profile">Profile</a></li>
+                <li ng-if="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
+
+                <li ng-if="model.currentUser.roles.indexOf('ADMIN') > -1"><a href="#!/admin">Admin</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <form name="model.myForm"  novalidate>
+                <div class="form-group">
+                    <label for="deckName">Name</label>
+                    <input ng-model="model.deck.name"
+                           id="deckName"
+                           type="text"
+                           class="form-control"
+                           placeholder="Name"
+                           ng-class="model.classes"
+                           required/>
+
+                    <label for="classSelect">Class</label>
+                    <select
+                            class="custom-select form-control"
+                            ng-model="model.deck.heroClass"
+                            id="classSelect">
+                        <option selected>Choose...</option>
+                        <option value="Druid">Druid</option>
+                        <option value="Hunter">Hunter</option>
+                        <option value="Mage">Mage</option>
+                        <option value="Paladin">Paladin</option>
+                        <option value="Priest">Priest</option>
+                        <option value="Rogue">Rogue</option>
+                        <option value="Shaman">Shaman</option>
+                        <option value="Warlock">Warlock</option>
+                        <option value="Warrior">Warrior</option>
+                    </select>
+
+                    <label  for="formatSelect">Game Type</label>
+                    <select class="form-control"
+
+                            ng-model="model.deck.gameType"
+                            id="formatSelect">
+                        <option selected>Choose...</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Wild">Wild</option>
+
+                    </select>
+
+                    <label  for="securitySelect">Public/Private</label>
+                    <select class="form-control"
+                            ng-model="model.deck.security"
+                            id="securitySelect">
+                        <option selected>Choose...</option>
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select>
+
+
+                    <label for="description">Description</label>
+                    <textarea ng-model="model.deck.description"
+                              id="Description"
+                              rows="5"
+                              placeholder="Description"
+                              class="form-control"></textarea>
+                </div>
+            </form>
+
+            <div class="btn btn-primary"
+                 ng-click="model.createDeck(model.deck)">
+                Create Deck
+            </div>
+        </div>
+    </div>
+</div>
+

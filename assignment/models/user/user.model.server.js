@@ -9,10 +9,10 @@ userModel.findUserByCredentials = findUserByCredentials;
 userModel.findUserByUsername = findUserByUsername;
 userModel.deleteUser = deleteUser;
 userModel.updateUser = updateUser;
-userModel.findUserByUsername = findUserByUsername;
+//userModel.findUserByUsername = findUserByUsername;
 userModel.deleteWebsite = deleteWebsite;
 userModel.addWebsite = addWebsite;
-userModel.findUserByFacebookId = findUserByFacebookId,
+userModel.findUserByFacebookId = findUserByFacebookId;
 
 module.exports = userModel;
 
