@@ -1,15 +1,22 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button"
+                    class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#navbar"
+                    aria-expanded="false"
+                    aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Hearthstone Deck Builder</a>
+            <a class="navbar-brand"
+               href="#">Hearthstone Deck Builder</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar"
+             class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#!/">Home</a></li>
                 <li ng-if="model.currentUser._id">
@@ -28,114 +35,70 @@
         </div>
     </div>
 </nav>
-<!--<nav class="navbar navbar-default navbar-fixed-top">-->
-    <!--<div class="container-fluid">-->
-        <!--<div class="row">-->
-            <!--<div class="col-md-3 hidden-sm hidden-xs">-->
-                <!--<div class="navbar-header">-->
-                    <!--<div>-->
-                        <!--<a href="#!/user/{{model.userId}}/deck">-->
-                            <!--<span class="pad-right pad-top-bottom hover-highlight color-white glyphicon glyphicon-chevron-left"></span>-->
-                        <!--</a>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class=" navbar-brand color-white">-->
-                <!--Decks-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="col-md-1 hidden-sm hidden-xs">-->
-                <!--<a href="#!/user/{{model.userId}}/deck/new">-->
-                    <!--<span class="pad-right pad-top-bottom hover-highlight color-white pull-right glyphicon glyphicon-plus"></span>-->
-                <!--</a>-->
-            <!--</div>-->
-
-            <!--<div class="col-xs-1 hidden-md hidden-lg">-->
-                <!--<a href="#!/user/{{model.userId}}/deck">-->
-                    <!--<span class="pad-top-bottom hover-highlight color-white pull-left glyphicon glyphicon-chevron-left"></span>-->
-                <!--</a>-->
-            <!--</div>-->
-
-            <!--<div class="col-md-7 col-sm-9 col-xs-9">-->
-                <!--<div class=" navbar-brand color-white">-->
-                <!--New Deck-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="col-md-1 col-sm-2 col-xs-2">-->
-                <!--<a ng-click="model.createDeck(model.deck)">-->
-                    <!--<span class="pad-right pad-top-bottom hover-highlight color-white pull-right glyphicon glyphicon-ok"></span>-->
-                <!--</a>-->
-            <!--</div>-->
-
-        <!--</div>-->
-    <!--</div>-->
-<!--</nav>-->
-
-
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-sm-12">
             <form name="model.myForm"  novalidate>
                 <div class="form-group">
-            <label for="deckName">Name</label>
-            <input ng-model="model.deck.name"
-                   id="deckName"
-                   type="text"
-                   class="form-control"
-                   placeholder="Name"
-                   ng-class="model.classes"
-                   required/>
+                    <label for="deckName">Name</label>
+                    <input ng-model="model.deck.name"
+                           id="deckName"
+                           type="text"
+                           class="form-control"
+                           placeholder="Name"
+                           ng-class="model.classes"
+                           required/>
 
-                <label for="classSelect">Class</label>
-             <select
-                     class="custom-select form-control"
-                     ng-model="model.deck.heroClass"
-                     id="classSelect">
-                    <option selected>Choose...</option>
-                    <option value="Druid">Druid</option>
-                    <option value="Hunter">Hunter</option>
-                    <option value="Mage">Mage</option>
-                    <option value="Paladin">Paladin</option>
-                    <option value="Priest">Priest</option>
-                    <option value="Rogue">Rogue</option>
-                    <option value="Shaman">Shaman</option>
-                    <option value="Warlock">Warlock</option>
-                    <option value="Warrior">Warrior</option>
-                </select>
+                    <label for="classSelect">Class</label>
+                    <select
+                            class="custom-select form-control"
+                            ng-model="model.deck.heroClass"
+                            id="classSelect">
+                        <option selected>Choose...</option>
+                        <option value="Druid">Druid</option>
+                        <option value="Hunter">Hunter</option>
+                        <option value="Mage">Mage</option>
+                        <option value="Paladin">Paladin</option>
+                        <option value="Priest">Priest</option>
+                        <option value="Rogue">Rogue</option>
+                        <option value="Shaman">Shaman</option>
+                        <option value="Warlock">Warlock</option>
+                        <option value="Warrior">Warrior</option>
+                    </select>
 
-                <label  for="formatSelect">Game Type</label>
-                <select class="form-control"
+                    <label  for="formatSelect">Game Type</label>
+                    <select class="form-control"
 
-                        ng-model="model.deck.gameType"
-                        id="formatSelect">
-                    <option selected>Choose...</option>
-                    <option value="Standard">Standard</option>
-                    <option value="Wild">Wild</option>
+                            ng-model="model.deck.gameType"
+                            id="formatSelect">
+                        <option selected>Choose...</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Wild">Wild</option>
 
-                </select>
+                    </select>
 
-                <label  for="securitySelect">Public/Private</label>
-                <select class="form-control"
-                        ng-model="model.deck.security"
-                        id="securitySelect">
-                    <option selected>Choose...</option>
-                    <option value="Public">Public</option>
-                    <option value="Private">Private</option>
-                </select>
+                    <label  for="securitySelect">Public/Private</label>
+                    <select class="form-control"
+                            ng-model="model.deck.security"
+                            id="securitySelect">
+                        <option selected>Choose...</option>
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select>
 
 
-                <label for="description">Description</label>
-            <textarea ng-model="model.deck.description"
-                      id="Description"
-                      rows="5"
-                      placeholder="Description"
-                      class="form-control"></textarea>
-        </div>
+                    <label for="description">Description</label>
+                    <textarea ng-model="model.deck.description"
+                              id="Description"
+                              rows="5"
+                              placeholder="Description"
+                              class="form-control"></textarea>
+                </div>
             </form>
 
-            <div class="btn btn-primary" ng-click="model.createDeck(model.deck)">
+            <div class="btn btn-primary"
+                 ng-click="model.createDeck(model.deck)">
                 Create Deck
             </div>
         </div>

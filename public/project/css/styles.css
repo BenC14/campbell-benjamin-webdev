@@ -311,4 +311,13 @@ input:checked + .slider:before {
     margin-bottom: 5px;
     color: #fff !important;
 }
+.no-pad {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.view-Button {
+    color: #fff !important;
+    display: block;
+
+}
 

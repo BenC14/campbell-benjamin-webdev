@@ -6,8 +6,7 @@
     function adminController(currentUser, $location, userProjectService, deckService, $route, $routeParams) {
 
         var model = this;
-        //var userId = $routeParams['userId'];
-        var userId = currentUser._id;//$routeParams['userId'];
+        var userId = currentUser._id;
         model.user = currentUser;
         model.userClone = angular.copy(model.user);
         model.currentUser = currentUser;
@@ -25,7 +24,6 @@
 
 
         function findAllUsers() {
-            console.log('in find all user');
             userProjectService
                 .findAllUsers()
                 .then(function (users) {
@@ -36,11 +34,9 @@
         findAllUsers();
 
         function findAllDecks() {
-            console.log('in find all deck');
             deckService
                 .findAllDecks()
                 .then(function (decks) {
-                    console.log(decks);
                     model.decks = decks;
                 })
         }

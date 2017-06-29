@@ -6,7 +6,6 @@
     function profileController(currentUser, $location, userProjectService, $routeParams) {
 
         var model = this;
-        //var userId = $routeParams['userId'];
         var userId = currentUser._id;//$routeParams['userId'];
         model.user = currentUser;
         model.userClone = angular.copy(model.user);

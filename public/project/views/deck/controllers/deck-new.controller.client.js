@@ -15,8 +15,6 @@
         model.logout = logout;
         model.currentUser = currentUser;
 
-        console.log(currentUser);
-
         deckService
             .findAllDecksForUser(model.userId)
             .then(renderDecks);
@@ -27,7 +25,6 @@
 
         // implementation
         function createDeck(deck) {
-            console.log(deck);
             if(model.myForm.$invalid) {
                 model.classes = 'clicked';
                 return;

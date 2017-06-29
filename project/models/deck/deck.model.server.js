@@ -46,16 +46,13 @@ function findAllDecksForUser(userId) {
 }
 
 function deleteDeck(deckId) {
-    console.log('in delete');
     return deckModel
         .findById(deckId)
         .then(function (deck) {
-            console.log('found deck');
             userProjectModel
                 .deleteDeck(deck._user, deckId);
         })
         .then(function(){
-            console.log('in next part');
             return deckModel
                 .remove({_id: deckId})
                 .then(function (status) {

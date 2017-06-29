@@ -1,15 +1,22 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button"
+                    class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#navbar"
+                    aria-expanded="false"
+                    aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Hearthstone Deck Builder</a>
+            <a class="navbar-brand"
+               href="#">Hearthstone Deck Builder</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar"
+             class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#!/">Home</a></li>
                 <li ng-if="model.currentUser._id">
@@ -28,50 +35,6 @@
         </div>
     </div>
 </nav>
-<!--<nav class="navbar navbar-default navbar-fixed-top">-->
-    <!--<div class="container-fluid">-->
-        <!--<div class="row">-->
-            <!--<div class="col-md-3 hidden-sm hidden-xs">-->
-                <!--<div class="navbar-header">-->
-                    <!--<div>-->
-                        <!--<a href="#!/user/{{model.userId}}/deck">-->
-                            <!--<span class="pad-right pad-top-bottom hover-highlight color-white glyphicon glyphicon-chevron-left"></span>-->
-                        <!--</a>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class=" navbar-brand color-white">-->
-                    <!--Decks-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="col-md-1 hidden-sm hidden-xs">-->
-                <!--<a href="#!/user/{{model.userId}}/deck/new">-->
-                    <!--<span class="pad-right pad-top-bottom hover-highlight color-white pull-right glyphicon glyphicon-plus"></span>-->
-                <!--</a>-->
-            <!--</div>-->
-
-            <!--<div class="col-xs-1 col-sm-1 hidden-md hidden-lg">-->
-                <!--<a href="#!/user/{{model.userId}}/deck">-->
-                    <!--<span class="pad-top-bottom hover-highlight color-white pull-left glyphicon glyphicon-chevron-left"></span>-->
-                <!--</a>-->
-            <!--</div>-->
-
-            <!--<div class="col-md-7 col-sm-9 col-xs-9">-->
-                <!--<div class=" navbar-brand color-white">-->
-                    <!--Edit Deck-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="col-md-1 col-sm-2 col-xs-2">-->
-                <!--<a ng-click="model.updateDeck()">-->
-                    <!--<span class="pad-right pad-top-bottom hover-highlight color-white pull-right glyphicon glyphicon-ok"></span>-->
-                <!--</a>-->
-            <!--</div>-->
-
-        <!--</div>-->
-    <!--</div>-->
-<!--</nav>-->
-
 
 
 <div class="container-fluid">
@@ -95,11 +58,11 @@
             <label name="model.myForm" novalidate>
                 <div class="row">
                     <div class="col-sm-10 col-xs-9">
-            <label for="name"> Deck Name</label>
+                        <label for="name"> Deck Name</label>
 
-                </div>
+                    </div>
                     <div class="col-sm-2 col-xs-3 btn btn-primary updateButton"
-                        ng-click="model.updateDeck()">
+                         ng-click="model.updateDeck()">
                         Update Deck
                     </div>
                 </div>
@@ -116,67 +79,63 @@
                            class="form-control"
                            placeholder="Leeroy Jenkins">
                     <span class="input-group-btn">
-                        <a ng-click="model.searchCards(searchText)" class="btn btn-default" type="button">
+                        <a ng-click="model.searchCards(searchText)"
+                           class="btn btn-default"
+                           type="button">
                             <span class="glyphicon glyphicon-search"></span>
                         </a>
                     </span>
                 </div>
 
-                <div class="btn-group" ng-click="model.classChanged()">
-                    <label class="btn btn-primary" ng-class="{active: true}" ng-model="model.classToggleValue" btn-radio="'hero'">{{model.deck.heroClass}}</label>
-                    <label class="btn btn-primary" ng-model="model.classToggleValue" btn-radio="'neutral'">Neutral</label>
+                <div class="btn-group"
+                     ng-click="model.classChanged()">
+                    <label class="btn btn-primary"
+                           ng-class="{active: true}"
+                           ng-model="model.classToggleValue"
+                           btn-radio="'hero'">{{model.deck.heroClass}}</label>
+                    <label class="btn btn-primary"
+                           ng-model="model.classToggleValue"
+                           btn-radio="'neutral'">Neutral</label>
                 </div>
-
-                <!--<label>Neutral</label>-->
-
-                <!--<label class="switch">-->
-                <!--<input type="checkbox"-->
-                       <!--ng-model="model.classToggleValue"-->
-                       <!--name="string"-->
-                       <!--ng-change="model.classChanged()">-->
-                <!--<div class="slider round"></div>-->
-                <!--</label>-->
-                <!--<span><b>{{model.deck.heroClass}}</b></span>-->
 
                 <div class="row">
                     <div class="col-md-9 col-sm-9 container-fluid" wbdv-sortable>
                         <div ng-repeat="selectableCard in model.cards[model.currentlyRendering] | filter:{'name':model.searchText, 'type':'!Hero'}"
                              class="wd-card col-md-4 col-sm-4 col-xs-6">
-                            <!--<div class="wd-toolbar">-->
-                                <!--<a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">-->
-                                    <!--<span class="glyphicon glyphicon-cog"></span>-->
-                                <!--</a>-->
-                                <!--<span class="glyphicon glyphicon-align-justify"></span>-->
-                            <!--</div>-->
-                            <img ng-click="model.addCardToDeck(selectableCard)" ng-src="{{selectableCard.img}}" width="100%" >
+                            <img ng-click="model.addCardToDeck(selectableCard)"
+                                 ng-src="{{selectableCard.img}}"
+                                 width="100%" >
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3">
                         Deck List {{model.deckClone.cardCount}} out of 30
 
-                        <ul ng-repeat="card in model.deckClone.cards | orderBy:'cost'" class="list-group card-list">
-                            <li class="list-group-item card-list-item" ng-click="model.removeCardFromDeck(card)">
-                                <td><span class="pull-left mana-cost"> {{card.cost}}</span></td>
-                                <td><span class="card-name">{{card.name}}</span></td>
-                                <td><span class="pull-right">{{card.quantity}}</span></td>
-                                <td><span width="5px" class="{{card.rarity}}">.</span></td>
+                        <ul ng-repeat="card in model.deckClone.cards | orderBy:'cost'"
+                            class="list-group card-list">
+                            <li class="list-group-item card-list-item"
+                                ng-click="model.removeCardFromDeck(card)">
+                                <span class="pull-left mana-cost"> {{card.cost}}</span>
+                                <span class="card-name">{{card.name}}</span>
+                                <span class="pull-right">{{card.quantity}}</span>
+                                <span width="5px"
+                                          class="{{card.rarity}}">.</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-            <label for="description">Deck Description</label>
-            <textarea ng-model="model.deckClone.description"
-                      id="Description"
-                      rows="5"
-                      placeholder="description"
-                      class="form-control"></textarea>
-            </form>
+                <label for="description">Deck Description</label>
+                <textarea ng-model="model.deckClone.description"
+                          id="Description"
+                          rows="5"
+                          placeholder="description"
+                          class="form-control"></textarea>
+                </form>
 
-            <a ng-click="model.deleteDeck(model.deckId)"
-               class="btn btn-block btn-danger">
-                Delete
-            </a>
+                <a ng-click="model.deleteDeck(model.deckId)"
+                   class="btn btn-block btn-danger">
+                    Delete
+                </a>
         </div>
     </div>
 </div>

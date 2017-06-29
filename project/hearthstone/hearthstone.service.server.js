@@ -6,9 +6,7 @@ const https = require('https');
 
 app.get('/api/hearthstone/query/cards/classes/:heroClass', searchQuery);
 
-var appId   = process.env.OXFORD_APP_ID;
 var appKey  = process.env.HEARTHSTONE_API_KEY;
-var baseUrl = process.env.OXFORD_API_BASE_URL;
 
 function searchQuery(req, res) {
     var heroClass     = req.params.heroClass;
@@ -27,7 +25,6 @@ function hearthstoneSearchQuery(heroClass) {
         path: '/cards/classes/'+heroClass+'?collectible=1',
         headers: {
             "Accept": "application/json",
-            // "app_id": appId,
             "X-Mashape-Key": appKey
         }
     }, function(response) {

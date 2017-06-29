@@ -25,8 +25,6 @@
             userProjectService
                 .logout()
                 .then(function () {
-                    // window.location.replace('/')
-                    // $location.url('/');
                     $route.reload();
                 });
         }

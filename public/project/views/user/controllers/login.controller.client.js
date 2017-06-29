@@ -19,16 +19,12 @@
                 .then(login, handleError);
 
             function handleError(error) {
-                console.log(error);
-                console.log('in error');
                 model.message = "Username or Password is incorrect, please try again";
             }
 
             function login(found) {
-                console.log('in login found');
                 if(found !== null) {
                     $location.url('/');
-                    // $scope.message = "Welcome " + username;
                 } else {
                     model.message = "Username " + username + " not found, please try again";
                 }

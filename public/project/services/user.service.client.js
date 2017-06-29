@@ -38,31 +38,22 @@
         }
 
         function checkLoggedIn() {
-            console.log('in user service checked');
             var url = "/api/project/checkLoggedIn";
             return $http.get(url)
                 .then(function (response) {
-                    console.log('in checked logged in response');
-                    console.log(response);
                     return response.data;
                 });
         }
 
         function checkAdmin() {
-            console.log('in user service checked');
             var url = "/api/project/checkAdmin";
             return $http.get(url)
                 .then(function (response) {
-                    console.log('in checked logged in response');
-                    console.log(response);
                     return response.data;
                 });
         }
 
         function login(username, password) {
-            console.log('in login in the user service');
-            console.log(username);
-            console.log(password);
             var url = "/api/project/login";
             var credentials = {
                 username: username,

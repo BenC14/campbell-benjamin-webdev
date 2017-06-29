@@ -10,13 +10,11 @@ var googleConfig = {
     clientID     : process.env.GOOGLE_CLIENT_ID,
     clientSecret : process.env.GOOGLE_CLIENT_SECRET,
     callbackURL  : process.env.GOOGLE_CALLBACK_URL
-    // profileFields: ['id','emails', 'first_name', 'last_name', 'displayName']
 };
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
-console.log('in user service')
 app.get   ('/api/project/user', findUserByCredentials);
 app.get   ('/api/project/user/all', isAdmin, findAllUsers);
 app.get   ('/api/project/user/:userId', findUserById);
@@ -96,8 +94,6 @@ function logout(req, res) {
 }
 
 function checkLoggedIn(req, res) {
-    console.log(req.user);
-    console.log(req.isAuthenticated());
     if(req.isAuthenticated()) {
         res.json(req.user);
     } else {
@@ -106,8 +102,6 @@ function checkLoggedIn(req, res) {
 }
 
 function checkAdmin(req, res) {
-    console.log(req.user);
-    console.log(req.isAuthenticated());
     if(req.isAuthenticated() && req.user.roles.indexOf('ADMIN') > -1) {
         res.json(req.user);
     } else {
@@ -117,13 +111,10 @@ function checkAdmin(req, res) {
 
 
 function localStrategy(username, password, done) {
-    console.log(username);
-    console.log(password);
     userProjectModel
         .findUserByUsername(username)
         .then(function (user) {
             if(user.password && bcrypt.compareSync(password, user.password)) {
-                console.log('matched');
                 done(null, user);
             } else {
                 done(null, false);
@@ -134,8 +125,7 @@ function localStrategy(username, password, done) {
 }
 
 function login(req, res) {
-    console.log('in login');
-    console.log(req.user);
+
     res.json(req.user);
 }
 

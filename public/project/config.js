@@ -39,11 +39,6 @@
                     currentUser: checkLoggedIn
                 }
             })
-            // .when('/user/:userId', {
-            //     templateUrl: 'views/user/templates/profile.view.client.html',
-            //     controller: 'profileController',
-            //     controllerAs: 'model'
-            // })
             .when('/user/:userId/deck', {
             templateUrl: 'views/deck/templates/deck-list.view.client.html',
             controller: 'deckListController',
@@ -115,7 +110,6 @@
             .checkLoggedIn()
             .then(function (currentUser) {
                 if(currentUser === '0') {
-                    console.log('in check user');
                     deferred.reject();
                     $location.url('/login');
                 } else {
@@ -126,24 +120,18 @@
     }
     function checkUserMatch($q, $location, $route, userProjectService) {
         var deferred = $q.defer();
-        // console.log($routeParams['userId']);
         var routeUserId = $route.current.params.userId;
         var routeDeckId = $route.current.params.deckId;
-        console.log('routeId: ' + routeUserId);
-        console.log('deckId: ' + routeDeckId);
         userProjectService
             .checkLoggedIn()
             .then(function (currentUser) {
                 if(currentUser === '0') {
-                    console.log('in check user');
                     deferred.reject();
                     $location.url('/login');
                 } else if(currentUser._id === routeUserId){
-                    console.log('same user');
                     deferred.resolve(currentUser);
                 } else {
                     deferred.reject();
-                    console.log('different user redirect');
                     $location.url('/user/' + routeUserId + '/deck/' + routeDeckId + '/details');
                 }
             });

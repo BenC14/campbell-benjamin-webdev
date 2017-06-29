@@ -10,6 +10,7 @@
             <a class="navbar-brand" href="#">Hearthstone Deck Builder</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+
             <ul class="nav navbar-nav">
                 <li><a href="#!/">Home</a></li>
                 <li ng-if="model.currentUser._id">
@@ -17,6 +18,7 @@
                     </a>
                 </li>
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 <li ng-if="!model.currentUser._id"><a href="#!/login">Login</a></li>
                 <li ng-if="!model.currentUser._id"><a href="#!/register">Register</a></li>
@@ -28,28 +30,6 @@
         </div>
     </div>
 </nav>
-<!--<nav class="navbar navbar-default navbar-fixed-top">-->
-    <!--<div class="container-fluid">-->
-        <!--<div class="navbar-header">-->
-            <!--<a ng-click="model.updateUser()"-->
-               <!--class="navbar-notoggle"-->
-               <!--data-toggle="collapse"-->
-               <!--data-target="#myNavbar">-->
-                <!--<span class=" pull-right glyphicon glyphicon-ok"></span>-->
-            <!--</a>-->
-            <!--<a class="navbar-brand">Profile</a>-->
-        <!--</div>-->
-
-        <!--<ul class="nav navbar-nav navbar-right collapse navbar-collapse"-->
-            <!--id="myNavbar">-->
-            <!--<li><a ng-click="model.updateUser()" >-->
-                <!--<span class="hover-highlight color-white pull-right glyphicon glyphicon-ok"></span>-->
-            <!--</a></li>-->
-        <!--</ul>-->
-
-    <!--</div>-->
-<!--</nav>-->
-
 
 <div class="container-fluid">
 

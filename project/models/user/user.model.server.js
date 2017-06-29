@@ -10,7 +10,6 @@ userProjectModel.findUserByUsername = findUserByUsername;
 userProjectModel.findAllUsers = findAllUsers;
 userProjectModel.deleteUser = deleteUser;
 userProjectModel.updateUser = updateUser;
-//userProjectModel.findUserByUsername = findUserByUsername;
 userProjectModel.deleteDeck = deleteDeck;
 userProjectModel.addDeck = addDeck;
 userProjectModel.findUserByGoogleId = findUserByGoogleId;
@@ -62,13 +61,9 @@ function findUserByCredentials(username, password) {
 }
 
 function findUserByUsername(username) {
-    console.log('in find by user server');
-    console.log(username);
     return userProjectModel.findOne({username: username})
         .then(function (response) {
             if (response != null){
-                console.log('found');
-                console.log(response);
                 return response;
             } else {
                 return {'availble': 'true'};

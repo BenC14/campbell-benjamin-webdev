@@ -1,15 +1,22 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button"
+                    class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#navbar"
+                    aria-expanded="false"
+                    aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Hearthstone Deck Builder</a>
+            <a class="navbar-brand"
+               href="#">Hearthstone Deck Builder</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar"
+             class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#!/">Home</a></li>
                 <li class="active"
@@ -29,38 +36,10 @@
         </div>
     </div>
 </nav>
-<!--<nav class="navbar navbar-default navbar-fixed-top">-->
-    <!--<div class="container-fluid">-->
-        <!--<div class="navbar-header">-->
-
-            <!--<a href="#!/user/{{model.userId}}/deck/new"-->
-               <!--class="navbar-notoggle"-->
-               <!--data-toggle="collapse"-->
-               <!--data-target="#myNavbar">-->
-                <!--<span class="pull-right glyphicon glyphicon-plus"></span>-->
-            <!--</a>-->
-
-            <!--<div class="navbar-brand">-->
-                <!--<a href="#!/profile">-->
-                    <!--<span class="pad-right hover-highlight color-white glyphicon glyphicon-chevron-left"></span></a>-->
-                <!--Decks-->
-            <!--</div>-->
-
-        <!--</div>-->
-        <!--<ul class="nav navbar-nav navbar-right collapse navbar-collapse"-->
-            <!--id="myNavbar">-->
-            <!--<li>-->
-                <!--<a href="#!/user/{{model.userId}}/deck/new">-->
-                    <!--<span class="hover-highlight color-white pull-right glyphicon glyphicon-plus"></span>-->
-                <!--</a>-->
-            <!--</li>-->
-        <!--</ul>-->
-    <!--</div>-->
-<!--</nav>-->
-
 <div class="container-fluid">
     <div >
-        <a class="btn btn-primary updateButton" href="#!/user/{{model.userId}}/deck/new">
+        <a class="btn btn-primary updateButton"
+           href="#!/user/{{model.userId}}/deck/new">
             New Deck
         </a>
     </div>
@@ -104,11 +83,11 @@
                 </div>
 
                 <div class="col-sm-2 col-xs-3">
-                        {{deck.heroClass}}
+                    {{deck.heroClass}}
                 </div>
 
                 <div class="col-sm-2 col-xs-3">
-                        {{deck.gameType}}
+                    {{deck.gameType}}
                 </div>
 
                 <div class="col-sm-3 hidden-xs">
