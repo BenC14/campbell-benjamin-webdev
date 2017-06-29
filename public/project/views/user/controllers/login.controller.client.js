@@ -27,7 +27,7 @@
             function login(found) {
                 console.log('in login found');
                 if(found !== null) {
-                    $location.url('/profile');
+                    $location.url('/');
                     // $scope.message = "Welcome " + username;
                 } else {
                     model.message = "Username " + username + " not found, please try again";

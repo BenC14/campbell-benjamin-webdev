@@ -78,11 +78,11 @@
                    ng-class="model.classes"
                    required/>
 
-                <label class="mr-sm-2" for="inlineFormCustomSelect">Class</label>
+                <label class="mr-sm-2" for="classSelect">Class</label>
              <select
                      class="custom-select mb-2 mr-sm-2 mb-sm-0"
                      ng-model="model.deck.heroClass"
-                     id="inlineFormCustomSelect">
+                     id="classSelect">
                     <option selected>Choose...</option>
                     <option value="Druid">Druid</option>
                     <option value="Hunter">Hunter</option>
@@ -93,6 +93,26 @@
                     <option value="Shaman">Shaman</option>
                     <option value="Warlock">Warlock</option>
                     <option value="Warrior">Warrior</option>
+                </select>
+
+                <label class="mr-sm-2" for="formatSelect">Game Type</label>
+                <select
+                        class="custom-select mb-2 mr-sm-2 mb-sm-0"
+                        ng-model="model.deck.gameType"
+                        id="formatSelect">
+                    <option selected>Choose...</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Wild">Wild</option>
+
+                </select>
+
+                <label class="mr-sm-2" for="securitySelect">Public/Private</label>
+                <select class="custom-select mb-2 mr-sm-2 mb-sm-0"
+                        ng-model="model.deck.security"
+                        id="securitySelect">
+                    <option selected>Choose...</option>
+                    <option value="Public">Public</option>
+                    <option value="Private">Private</option>
                 </select>
 
                 {{model.heroClass}}

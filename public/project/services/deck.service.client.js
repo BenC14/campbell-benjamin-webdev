@@ -9,6 +9,8 @@
             createDeck: createDeck,
             findAllDecksForUser: findAllDecksForUser,
             findDeckById: findDeckById,
+            findAllDecks: findAllDecks,
+            findAllPublicDecks: findAllPublicDecks,
             updateDeck: updateDeck,
             deleteDeck: deleteDeck,
             getCardsForClass: getCardsForClass
@@ -61,5 +63,22 @@
                     return response.data;
                 });
         }
+
+        function findAllDecks() {
+            var url = "/api/project/deck/all";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function findAllPublicDecks() {
+            var url = "/api/project/deck/public";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
     }
 })();

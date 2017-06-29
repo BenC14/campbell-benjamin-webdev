@@ -217,12 +217,6 @@ function findUserById(req, res) {
 }
 
 function findAllUsers(req, res) {
-    // var username = req.user['username'];
-    // var password = req.user['password'];
-    //
-    // if (username && password) {
-    //     return findUserByCredentials(req, res);
-    // }
 
     userProjectModel
         .findAllUsers()

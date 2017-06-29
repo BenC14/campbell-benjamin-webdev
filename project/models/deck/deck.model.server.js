@@ -8,6 +8,8 @@ deckModel.createDeck = createDeck;
 deckModel.deleteDeck = deleteDeck;
 deckModel.updateDeck = updateDeck;
 deckModel.findDeckById = findDeckById;
+deckModel.findAllDecks = findAllDecks;
+deckModel.findAllPublicDecks = findAllPublicDecks;
 deckModel.findAllDecksForUser = findAllDecksForUser;
 deckModel.reorderDeck = reorderDeck;
 
@@ -67,7 +69,21 @@ function updateDeck(deckId, deck) {
 }
 
 function findDeckById(deckId) {
-    return deckModel.findById(deckId);
+    return deckModel.findById(deckId)
+        .populate('_comments._user', 'username')
+        .exec();
+}
+
+function findAllDecks() {
+    return deckModel.find({})
+        .populate('_user', 'username')
+        .exec();
+}
+
+function findAllPublicDecks() {
+    return deckModel.find({security:'Public'})
+        .populate('_user', 'username')
+        .exec();
 }
 
 function reorderDeck(userId, start, end) {

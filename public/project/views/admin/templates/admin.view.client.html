@@ -1,5 +1,146 @@
 <h1>Admin</h1>
+<div class="container-fluid">
+<div class="btn-group" ng-click="model.classChanged()">
+    <label class="btn btn-primary" ng-class="{active: true}" ng-model="model.typeToggleValue" btn-radio="'users'">Users</label>
+    <label class="btn btn-primary" ng-model="model.typeToggleValue" btn-radio="'decks'">Decks</label>
+</div>
 
-<button ng-click="model.findAllUsers()">users!</button>
-<div>
-{{model.users}}</div>
+<div ng-if="model.typeToggleValue == 'users'">
+<ul class="list-group">
+    <li class="list-group-item active">
+        <div class="row">
+            <div class="col-sm-2">Username</div>
+            <div class="col-sm-2">First Name</div>
+            <div class="col-sm-2">Last Name</div>
+            <div class="col-sm-3">Email</div>
+            <div class="col-sm-1">Decks</div>
+            <div class="col-sm-1">Update</div>
+            <div class="col-sm-1">Delete</div>
+        </div>
+    </li>
+    <li ng-repeat="user in model.users | orderBy:'username'"
+        class="list-group-item">
+        <div class="row">
+            <div class="col-sm-2">
+                <input ng-model="user.username"
+                       value="Username"
+                       type="text"
+                       placeholder="Username"
+                       id="username"
+                       class="form-control"/>
+            </div>
+            <div class="col-sm-2">
+                <input ng-model="user.firstName"
+                       value="First Name"
+                       type="text"
+                       placeholder="First Name"
+                       id="firstName"
+                       class="form-control"/>
+            </div>
+            <div class="col-sm-2">
+                <input ng-model="user.lastName"
+                       value="Last Name"
+                       type="text"
+                       placeholder="Last Name"
+                       id="lastName"
+                       class="form-control"/>
+            </div>
+            <div class="col-sm-3">
+                <input ng-model="user.email"
+                       value="email"
+                       type="email"
+                       placeholder="Email Address"
+                       id="email"
+                       class="form-control"/>
+            </div>
+            <div class="col-sm-1">
+                <a ng-click="model.seeUsersDecks(user)">Decks</a>
+            </div>
+            <div ng-click="model.updateOtherUser(user)" class="btn btn-primary col-sm-1">Update</div>
+            <div ng-click="model.deleteOtherUser(user)" class="btn btn-danger col-sm-1">Delete</div>
+        </div>
+
+    </li>
+</ul>
+</div>
+
+<div ng-if="model.typeToggleValue == 'decks'">
+    <ul class="list-group">
+        <li class="list-group-item active">
+            <div class="row">
+                <div class="col-sm-2">Deck Name</div>
+                <div class="col-sm-2">Created By</div>
+                <div class="col-sm-2">Class</div>
+                <div class="col-sm-2">Game Type</div>
+                <div class="col-sm-1">Security</div>
+                <div class="col-sm-1">Comments</div>
+                <div class="col-sm-1">Update</div>
+                <div class="col-sm-1">Delete</div>
+            </div>
+        </li>
+        <li ng-repeat="deck in model.decks | orderBy:'_user'"
+            class="list-group-item">
+            <div class="row">
+                <div class="col-sm-2">
+                    <input ng-model="deck.name"
+                           value="Deck Name"
+                           type="text"
+                           placeholder="Deck Name"
+                           id="deckName"
+                           class="form-control"/>
+                </div>
+                <div class="col-sm-2">
+                    <input ng-model="deck._user.username"
+                           value="Username"
+                           type="text"
+                           placeholder="Username"
+                           id="deckUsername"
+                           class="form-control"
+                           readonly/>
+                </div>
+                <div class="col-sm-2">
+                    <input ng-model="deck.heroClass"
+                           value="Class"
+                           type="text"
+                           placeholder="Mage"
+                           id="heroClass"
+                           class="form-control"
+                           readonly/>
+                </div>
+                <div class="col-sm-2">
+                    <input ng-model="deck.gameType"
+                           value="Game Type"
+                           type="text"
+                           placeholder="Standard"
+                           id="gameType"
+                           class="form-control"
+                           readonly/>
+                </div>
+                <div class="col-sm-1">
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0"
+                            ng-model="deck.security"
+                            id="formatSelect">
+                        <option selected>{{deck.security}}</option>
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select>
+                    <!---->
+                    <!--<input ng-model="deck.security"-->
+                           <!--value="security"-->
+                           <!--type="text"-->
+                           <!--placeholder="Public"-->
+                           <!--id="security"-->
+                           <!--class="form-control"/>-->
+                </div>
+                <div class="col-sm-1">
+                    <a ng-click="model.seeDecksComments(deck)">Comments</a>
+                </div>
+                <div ng-click="model.updateOtherDeck(deck)" class="btn btn-primary col-sm-1">Update</div>
+                <div ng-click="model.deleteOtherDeck(deck)" class="btn btn-danger col-sm-1">Delete</div>
+            </div>
+
+        </li>
+    </ul>
+</div>
+
+</div>

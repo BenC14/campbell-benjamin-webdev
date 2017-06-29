@@ -5,6 +5,8 @@ var app = require('../../express');
 
 app.post  ('/api/project/user/:userId/deck', createDeck);
 app.get('/api/project/user/:userId/deck', findAllDecksForUser);
+app.get   ('/api/project/deck/all', findAllDecks);
+app.get   ('/api/project/deck/public', findAllPublicDecks);
 app.get   ('/api/project/deck/:deckId', findDeckById);
 app.put   ('/api/project/deck/:deckId', updateDeck);
 app.delete('/api/project/deck/:deckId', deleteDeck);
@@ -58,6 +60,26 @@ function findDeckById(req, res) {
         .then(function (deck) {
             res.send(deck);
         });
+
+}
+
+function findAllDecks(req, res) {
+
+    deckModel
+        .findAllDecks()
+        .then(function(decks) {
+            res.json(decks);
+        })
+
+}
+
+function findAllPublicDecks(req, res) {
+
+    deckModel
+        .findAllPublicDecks()
+        .then(function(decks) {
+            res.json(decks);
+        })
 
 }
 

@@ -109,6 +109,9 @@ a:hover {
     .col-md-8-absolute {
         margin-left: 33%;
     }
+    .col-md-9-absolute {
+        margin-left: 25%;
+    }
 }
 
 .wd-widget {

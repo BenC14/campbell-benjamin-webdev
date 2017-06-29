@@ -36,7 +36,7 @@
                             .register(user)
                             .then(function (user) {
                                 console.log('before redirect');
-                                $location.url('/profile');
+                                $location.url('/');
                             });
                     }
                 });
