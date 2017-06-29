@@ -55,6 +55,7 @@ function deleteDeck(deckId) {
                 .deleteDeck(deck._user, deckId);
         })
         .then(function(){
+            console.log('in next part');
             return deckModel
                 .remove({_id: deckId})
                 .then(function (status) {

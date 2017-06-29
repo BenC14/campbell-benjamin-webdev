@@ -35,6 +35,7 @@
             var url = "/api/project/deck/" + deckId;
             return $http.delete(url)
                 .then(function (response) {
+                    console.log('has response');
                     return response.data;
                 });
         }

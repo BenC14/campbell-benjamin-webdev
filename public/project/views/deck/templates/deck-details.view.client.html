@@ -1,29 +1,59 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs">
-                <div class="navbar-header">
-                    <div>
-                        <a href="#!/user/{{model.userId}}/deck">
-                            <span class="pad-right pad-top-bottom hover-highlight color-white glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class=" navbar-brand color-white">
-                    Decks
-                </div>
-            </div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Hearthstone Deck Builder</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#!/">Home</a></li>
+                <li ng-if="model.currentUser._id">
+                    <a href="#!/user/{{model.currentUser._id}}/deck">Decks
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-if="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-if="model.currentUser._id"><a href="#!/profile">Profile</a></li>
+                <li ng-if="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
 
-            <div class="col-xs-1 col-sm-1 hidden-md hidden-lg">
-                <a href="#!/user/{{model.userId}}/deck">
-                    <span class="pad-top-bottom hover-highlight color-white pull-left glyphicon glyphicon-chevron-left"></span>
-                </a>
-            </div>
-
-
+                <li ng-if="model.currentUser.roles.indexOf('ADMIN') > -1"><a href="#!/admin">Admin</a></li>
+            </ul>
         </div>
     </div>
 </nav>
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-3 hidden-sm hidden-xs">-->
+                <!--<div class="navbar-header">-->
+                    <!--<div>-->
+                        <!--<a href="#!/user/{{model.userId}}/deck">-->
+                            <!--<span class="pad-right pad-top-bottom hover-highlight color-white glyphicon glyphicon-chevron-left"></span>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class=" navbar-brand color-white">-->
+                    <!--Decks-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-1 col-sm-1 hidden-md hidden-lg">-->
+                <!--<a href="#!/user/{{model.userId}}/deck">-->
+                    <!--<span class="pad-top-bottom hover-highlight color-white pull-left glyphicon glyphicon-chevron-left"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
 
 <!--<div class="container-fluid">-->
     <!--{{model.deck.name}}-->
@@ -134,12 +164,72 @@
                                 <!--</a>-->
                                 <!--<span class="glyphicon glyphicon-align-justify"></span>-->
                             <!--</div>-->
-                            <img ng-click="model.addCardToDeck(selectableCard)" ng-src="{{selectableCard.img}}" width="100%" >
+                            <img ng-src="{{selectableCard.img}}" width="100%" >
                         </div>
                     </div>
 
                 </div>
             </form>
+<div class="row container-fluid">
+    <div class="hidden-md hidden-lg">
+        <div class="row">
+            <b>Deck Description: </b><p>{{model.deckClone.description}}</p>
+        </div>
+                <div class="row">
+                    <div class="btn-group btn-group-justified" ng-click="model.listChanged()">
+                    <span
+                            class="btn btn-primary "
+                            ng-class="{active: true}"
+                            ng-model="model.listToggleValue"
+                            btn-radio="'comment'">Comments
+                    </span>
+
+                        <span
+                                class="btn btn-primary"
+                                ng-model="model.listToggleValue"
+                                btn-radio="'list'">List
+                    </span>
+
+                    </div>
+                </div>
+
+                <div ng-if="model.listToggleValue == 'list'">
+                    Deck List {{model.deckClone.cardCount}} out of 30
+
+                    <ul class="list-group card-list">
+                        <li ng-repeat="card in model.deckClone.cards | orderBy:'cost'"
+                            class="list-group-item card-list-item">
+                            <td><span class="pull-left mana-cost"> {{card.cost}}</span></td>
+                            <td><span class="card-name">{{card.name}}</span></td>
+                            <td><span class="pull-right">{{card.quantity}}</span></td>
+                            <td><span width="5px" class="{{card.rarity}}">.</span></td>
+                        </li>
+                    </ul>
+                </div>
+
+                <div ng-if="model.listToggleValue == 'comment'">
+                    <ul class="list-group">
+                        <li ng-repeat="comment in model.deckClone._comments"
+                            class="list-group-item">
+                            <b>{{comment._user.username}}: </b>
+                            <span>{{comment.text}}</span>
+                        </li>
+                    </ul>
+
+                    <label for="comment">Comment</label>
+                    <textarea ng-model="model.commentNew"
+                              id="comment"
+                              rows="5"
+                              placeholder="Comment on this awesome deck!"
+                              class="form-control"></textarea>
+                    <div ng-if="model.currentUser._id" class="btn btn-primary btn-block" ng-click="model.addCommentToDeck(model.commentNew)">Post</div>
+                    <a ng-if="!model.currentUser._id" class="btn btn-danger btn-block" href="#!/login">Sign in to comment</a>
+                </div>
+
+                </ul>
+        </div>
+</div>
+</div>
 
             <!--<a ng-click="model.deleteDeck(model.deckId)"-->
                <!--class="btn btn-block btn-danger">-->
@@ -149,24 +239,3 @@
     </div>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="#!/profile"
-               class="navbar-notoggle"
-               data-toggle="collapse"
-               data-target="#theFooter">
-                <span class=" pull-right glyphicon glyphicon-user"></span>
-
-            </a>
-        </div>
-
-        <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
-            id="theFooter">
-            <li><a href="#!/profile">
-                <span class=" hover-highlight color-white pull-right glyphicon glyphicon-user"></span>
-            </a></li>
-        </ul>
-
-    </div>
-</nav>

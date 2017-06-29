@@ -59,6 +59,11 @@
 <!--</nav>-->
 
 <div class="container-fluid">
+    <div >
+        <a class="btn btn-primary updateButton" href="#!/user/{{model.userId}}/deck/new">
+            New Deck
+        </a>
+    </div>
     <ul class="list-group">
         <li class="list-group-item active">
             <div class="row">
@@ -70,11 +75,11 @@
                     Class
                 </div>
 
-                <div class="col-sm-3 col-xs-3">
+                <div class="col-sm-3 col-xs-4">
                     Game Type
                 </div>
 
-                <div class="col-sm-1 col-xs-1">
+                <div class="col-sm-1 hidden-xs">
 
                 </div>
 
@@ -95,16 +100,14 @@
                 </div>
 
                 <div class="col-sm-3 col-xs-3">
-                    <a href="#!/user/{{model.userId}}/deck/{{deck._id}}/details">
                         {{deck.heroClass}}
-                    </a>
                 </div>
 
-                <div class="col-sm-3 col-xs-3">
+                <div class="col-sm-3 col-xs-4">
                         {{deck.gameType}}
                 </div>
 
-                <div class="col-sm-1 col-xs-1">
+                <div class="col-sm-1 hidden-xs">
                     <div ng-if="deck.security == 'Private'">
                         <span class="glyphicon glyphicon-eye-close pull-right"></span>
                     </div>
@@ -121,23 +124,3 @@
     </ul>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="#!/profile"
-               class="navbar-notoggle"
-               data-toggle="collapse"
-               data-target="#theFooter">
-                <span class=" pull-right glyphicon glyphicon-user"></span>
-            </a>
-        </div>
-
-        <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
-            id="theFooter">
-            <li><a href="#!/profile">
-                <span class=" hover-highlight color-white pull-right glyphicon glyphicon-user"></span>
-            </a></li>
-        </ul>
-
-    </div>
-</nav>

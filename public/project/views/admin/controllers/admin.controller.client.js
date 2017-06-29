@@ -10,6 +10,7 @@
         var userId = currentUser._id;//$routeParams['userId'];
         model.user = currentUser;
         model.userClone = angular.copy(model.user);
+        model.currentUser = currentUser;
 
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;

@@ -86,29 +86,7 @@
            id="lastname"
            class="form-control"/>
 
-    <a href="#!/user/{{model.user._id}}/deck" class="btn btn-block btn-primary">Decks</a>
+    <div class="btn btn-primary btn-block" ng-click="model.updateUser()">Update</div>
 
-    <a ng-click="model.logout()" class="btn btn-block btn-danger">Logout</a>
+    <div ng-click="model.deleteUser(model.user)" class="btn btn-block btn-danger">Unregister</div>
 </div>
-
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="#!/profile"
-               class="navbar-notoggle"
-               data-toggle="collapse"
-               data-target="#theFooter">
-                <span class=" pull-right glyphicon glyphicon-user"></span>
-            </a>
-        </div>
-
-        <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
-            id="theFooter">
-            <li><a href="#!/profile">
-                <span class="hover-highlight color-white pull-right glyphicon glyphicon-user"></span>
-            </a></li>
-        </ul>
-
-    </div>
-</nav>

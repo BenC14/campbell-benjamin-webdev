@@ -12,8 +12,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#!/">Home</a></li>
-                <li class="active"
-                    ng-if="model.currentUser._id">
+                <li ng-if="model.currentUser._id">
                     <a href="#!/user/{{model.currentUser._id}}/deck">Decks
                     </a>
                 </li>
@@ -84,7 +83,7 @@
                     class="list-group-item">
                     <div class="row">
                         <div class="col-sm-12 col-xs-12">
-                            <a href="#!/user/{{model.userId}}/deck/{{deck._id}}/page">
+                            <a href="#!/user/{{model.userId}}/deck/{{deck._id}}">
                                 {{deck.name}}
                             </a>
                         </div>
@@ -94,15 +93,23 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-10-absolute">
             <label name="model.myForm" novalidate>
+                <div class="row">
+                    <div class="col-sm-10 col-xs-9">
             <label for="name"> Deck Name</label>
-            <input ng-model="model.deckClone.name"
-                   id="name"
-                   type="text"
-                   class="form-control"
-                   placeholder="Deck Name"
-                   ng-class="model.classes"
-                   required/>
 
+                </div>
+                    <div class="col-sm-2 col-xs-3 btn btn-primary updateButton"
+                        ng-click="model.updateDeck()">
+                        Update Deck
+                    </div>
+                </div>
+                <input ng-model="model.deckClone.name"
+                       id="name"
+                       type="text"
+                       class="form-control"
+                       placeholder="Deck Name"
+                       ng-class="model.classes"
+                       required/>
                 <div class="input-group flickr-search">
                     <input ng-model="model.searchText"
                            type="text"
@@ -173,25 +180,3 @@
         </div>
     </div>
 </div>
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="#!/profile"
-               class="navbar-notoggle"
-               data-toggle="collapse"
-               data-target="#theFooter">
-                <span class=" pull-right glyphicon glyphicon-user"></span>
-
-            </a>
-        </div>
-
-        <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
-            id="theFooter">
-            <li><a href="#!/profile">
-                <span class=" hover-highlight color-white pull-right glyphicon glyphicon-user"></span>
-            </a></li>
-        </ul>
-
-    </div>
-</nav>

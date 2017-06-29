@@ -1,6 +1,34 @@
-<h1>Admin</h1>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Hearthstone Deck Builder</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#!/">Home</a></li>
+                <li ng-if="model.currentUser._id">
+                    <a href="#!/user/{{model.currentUser._id}}/deck">Decks
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-if="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-if="model.currentUser._id"><a href="#!/profile">Profile</a></li>
+                <li ng-if="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
+                <li class="active" ng-if="model.currentUser.roles.indexOf('ADMIN') > -1"><a href="#!/admin">Admin</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container-fluid">
-<div class="btn-group" ng-click="model.classChanged()">
+<div class="btn-group updateButton" ng-click="model.classChanged()">
     <label class="btn btn-primary" ng-class="{active: true}" ng-model="model.typeToggleValue" btn-radio="'users'">Users</label>
     <label class="btn btn-primary" ng-model="model.typeToggleValue" btn-radio="'decks'">Decks</label>
 </div>
