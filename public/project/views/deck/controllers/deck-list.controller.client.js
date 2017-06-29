@@ -3,7 +3,7 @@
         .module('HSProject')
         .controller('deckListController', deckListController);
     
-    function deckListController(currentUser, $routeParams, deckService, userProjectService) {
+    function deckListController(currentUser, $routeParams, $location, deckService, userProjectService) {
 
         var model = this;
         model.userId = $routeParams['userId'];
