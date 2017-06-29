@@ -47,7 +47,10 @@
             .when('/user/:userId/deck', {
             templateUrl: 'views/deck/templates/deck-list.view.client.html',
             controller: 'deckListController',
-            controllerAs: 'model'
+            controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
             })
             .when('/user/:userId/deck/new', {
                 templateUrl: 'views/deck/templates/deck-new.view.client.html',

@@ -3,10 +3,12 @@
         .module('HSProject')
         .controller('deckListController', deckListController);
     
-    function deckListController($routeParams, deckService) {
+    function deckListController(currentUser, $routeParams, deckService, userProjectService) {
 
         var model = this;
         model.userId = $routeParams['userId'];
+        model.currentUser = currentUser
+        model.logout = logout;
 
         deckService
             .findAllDecksForUser(model.userId)
@@ -14,6 +16,14 @@
 
         function renderDecks(decks) {
             model.decks = decks;
+        }
+
+        function logout() {
+            userProjectService
+                .logout()
+                .then(function () {
+                    $location.url('/');
+                });
         }
 
     }

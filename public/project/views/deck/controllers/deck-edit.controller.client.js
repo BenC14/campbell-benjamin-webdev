@@ -3,14 +3,15 @@
         .module('HSProject')
         .controller('deckEditController', deckEditController);
     
-    function deckEditController($routeParams,
+    function deckEditController(currentUser, $routeParams,
                                   deckService,
-                                  $location) {
+                                  $location, userProjectService) {
 
         var model = this;
         model.userId = $routeParams['userId'];
         model.deckId = $routeParams.deckId;
         model.cards = {};
+        model.currentUser = currentUser;
 
         // event handlers
 
@@ -21,6 +22,7 @@
         model.removeCardFromDeck = removeCardFromDeck;
         model.renderCardList = renderCardList;
         model.classChanged = classChanged;
+        model.logout = logout;
 
         deckService
             .findDeckById(model.deckId)
@@ -176,18 +178,12 @@
 
         }
 
-        // model.filter('orderObjectBy', function() {
-        //     return function(items, field, reverse) {
-        //         var filtered = [];
-        //         angular.forEach(items, function(item) {
-        //             filtered.push(item);
-        //         });
-        //         filtered.sort(function (a, b) {
-        //             return (a[field] > b[field] ? 1 : -1);
-        //         });
-        //         if(reverse) filtered.reverse();
-        //         return filtered;
-        //     };
-        // });
+        function logout() {
+            userProjectService
+                .logout()
+                .then(function () {
+                    $location.url('/');
+                });
+        }
     }
 })();

@@ -1,74 +1,98 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs">
-                <div class="navbar-header">
-                    <div>
-                        <a href="#!/user/{{model.userId}}/deck">
-                            <span class="pad-right pad-top-bottom hover-highlight color-white glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class=" navbar-brand color-white">
-                    Decks
-                </div>
-            </div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Hearthstone Deck Builder</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#!/">Home</a></li>
+                <li class="active"
+                    ng-if="model.currentUser._id">
+                    <a href="#!/user/{{model.currentUser._id}}/deck">Decks
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-if="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-if="model.currentUser._id"><a href="#!/profile">Profile</a></li>
+                <li ng-if="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
 
-            <div class="col-md-1 hidden-sm hidden-xs">
-                <a href="#!/user/{{model.userId}}/deck/new">
-                    <span class="pad-right pad-top-bottom hover-highlight color-white pull-right glyphicon glyphicon-plus"></span>
-                </a>
-            </div>
-
-            <div class="col-xs-1 col-sm-1 hidden-md hidden-lg">
-                <a href="#!/user/{{model.userId}}/deck">
-                    <span class="pad-top-bottom hover-highlight color-white pull-left glyphicon glyphicon-chevron-left"></span>
-                </a>
-            </div>
-
-            <div class="col-md-7 col-sm-9 col-xs-9">
-                <div class=" navbar-brand color-white">
-                    Edit Deck
-                </div>
-            </div>
-
-            <div class="col-md-1 col-sm-2 col-xs-2">
-                <a ng-click="model.updateDeck()">
-                    <span class="pad-right pad-top-bottom hover-highlight color-white pull-right glyphicon glyphicon-ok"></span>
-                </a>
-            </div>
-
+                <li ng-if="model.currentUser.roles.indexOf('ADMIN') > -1"><a href="#!/admin">Admin</a></li>
+            </ul>
         </div>
     </div>
 </nav>
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-3 hidden-sm hidden-xs">-->
+                <!--<div class="navbar-header">-->
+                    <!--<div>-->
+                        <!--<a href="#!/user/{{model.userId}}/deck">-->
+                            <!--<span class="pad-right pad-top-bottom hover-highlight color-white glyphicon glyphicon-chevron-left"></span>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class=" navbar-brand color-white">-->
+                    <!--Decks-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="col-md-1 hidden-sm hidden-xs">-->
+                <!--<a href="#!/user/{{model.userId}}/deck/new">-->
+                    <!--<span class="pad-right pad-top-bottom hover-highlight color-white pull-right glyphicon glyphicon-plus"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-1 col-sm-1 hidden-md hidden-lg">-->
+                <!--<a href="#!/user/{{model.userId}}/deck">-->
+                    <!--<span class="pad-top-bottom hover-highlight color-white pull-left glyphicon glyphicon-chevron-left"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+
+            <!--<div class="col-md-7 col-sm-9 col-xs-9">-->
+                <!--<div class=" navbar-brand color-white">-->
+                    <!--Edit Deck-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="col-md-1 col-sm-2 col-xs-2">-->
+                <!--<a ng-click="model.updateDeck()">-->
+                    <!--<span class="pad-right pad-top-bottom hover-highlight color-white pull-right glyphicon glyphicon-ok"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
 
 
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-4 hidden-sm hidden-xs scrollable-left">
+        <div class="col-md-2 hidden-sm hidden-xs scrollable-left">
             <ul class="list-group">
 
                 <li ng-repeat="deck in model.decks"
                     class="list-group-item">
                     <div class="row">
-                        <div class="col-sm-10 col-xs-10">
+                        <div class="col-sm-12 col-xs-12">
                             <a href="#!/user/{{model.userId}}/deck/{{deck._id}}/page">
                                 {{deck.name}}
                             </a>
                         </div>
-
-                        <div class="col-sm-2 col-xs-2">
-                            <a href="#!/user/{{model.userId}}/deck/{{deck._id}}">
-                                <span class="glyphicon glyphicon-cog pull-right"></span>
-                            </a>
-                        </div>
-
                     </div>
                 </li>
             </ul>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-8 col-md-8-absolute">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-10-absolute">
             <label name="model.myForm" novalidate>
             <label for="name"> Deck Name</label>
             <input ng-model="model.deckClone.name"
